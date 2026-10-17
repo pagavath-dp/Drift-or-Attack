@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1850" height="1040" viewBox="0 0 1850 1040" role="img" aria-label="Track A · reference coverage and departure sensitivity">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="52.00" y="48.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="start">Track A · reference coverage and departure sensitivity</text>
+<text x="52.00" y="78.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start">Observed UCI records. Departures are from the Batch 1 reference envelope; they are not verified sensor drift.</text>
+<text x="70.00" y="125.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="start">A · Reference matching</text>
+<text x="925.00" y="125.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="start">B · Outside-envelope fraction among eligible records</text>
+<text x="70.00" y="150.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">Stacked fraction of records, with eligible/total shown below</text>
+<text x="925.00" y="150.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">Each label gives outside/eligible; q90, q95, q99 are Batch 1 cutoffs</text>
+<line x1="95.00" y1="700.00" x2="850.00" y2="700.00" stroke="#D9E1E5" stroke-width="1"/>
+<text x="85.00" y="705.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">0%</text>
+<line x1="95.00" y1="577.50" x2="850.00" y2="577.50" stroke="#D9E1E5" stroke-width="1"/>
+<text x="85.00" y="582.50" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">25%</text>
+<line x1="95.00" y1="455.00" x2="850.00" y2="455.00" stroke="#D9E1E5" stroke-width="1"/>
+<text x="85.00" y="460.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">50%</text>
+<line x1="95.00" y1="332.50" x2="850.00" y2="332.50" stroke="#D9E1E5" stroke-width="1"/>
+<text x="85.00" y="337.50" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">75%</text>
+<line x1="95.00" y1="210.00" x2="850.00" y2="210.00" stroke="#D9E1E5" stroke-width="1"/>
+<text x="85.00" y="215.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">100%</text>
+<line x1="950.00" y1="700.00" x2="1705.00" y2="700.00" stroke="#D9E1E5" stroke-width="1"/>
+<text x="940.00" y="705.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">0%</text>
+<line x1="950.00" y1="577.50" x2="1705.00" y2="577.50" stroke="#D9E1E5" stroke-width="1"/>
+<text x="940.00" y="582.50" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">25%</text>
+<line x1="950.00" y1="455.00" x2="1705.00" y2="455.00" stroke="#D9E1E5" stroke-width="1"/>
+<text x="940.00" y="460.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">50%</text>
+<line x1="950.00" y1="332.50" x2="1705.00" y2="332.50" stroke="#D9E1E5" stroke-width="1"/>
+<text x="940.00" y="337.50" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">75%</text>
+<line x1="950.00" y1="210.00" x2="1705.00" y2="210.00" stroke="#D9E1E5" stroke-width="1"/>
+<text x="940.00" y="215.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="end">100%</text>
+<rect x="105.00" y="265.06" width="46.00" height="434.94" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="105.00" y="265.06" width="46.00" height="0.00" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="105.00" y="210.00" width="46.00" height="55.06" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="128.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B1</text>
+<text x="128.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">395/445</text>
+<rect x="956.00" y="660.30" width="13.00" height="39.70" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="962.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 962.00 790.00)">32/395</text>
+<rect x="972.00" y="675.19" width="13.00" height="24.81" rx="0" fill="#009E73" stroke="none"/>
+<text x="978.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 978.00 815.00)">20/395</text>
+<rect x="988.00" y="695.04" width="13.00" height="4.96" rx="0" fill="#D55E00" stroke="none"/>
+<text x="994.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 994.00 840.00)">4/395</text>
+<text x="980.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B1</text>
+<rect x="179.00" y="323.83" width="46.00" height="376.17" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="179.00" y="306.50" width="46.00" height="17.33" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="179.00" y="210.00" width="46.00" height="96.50" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="202.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B2</text>
+<text x="202.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">955/1244</text>
+<rect x="1031.00" y="286.96" width="13.00" height="413.04" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1037.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1037.00 790.00)">805/955</text>
+<rect x="1047.00" y="437.81" width="13.00" height="262.19" rx="0" fill="#009E73" stroke="none"/>
+<text x="1053.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1053.00 815.00)">511/955</text>
+<rect x="1063.00" y="632.27" width="13.00" height="67.73" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1069.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1069.00 840.00)">132/955</text>
+<text x="1055.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B2</text>
+<rect x="253.00" y="398.15" width="46.00" height="301.85" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="253.00" y="317.21" width="46.00" height="80.95" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="253.00" y="210.00" width="46.00" height="107.21" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="276.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B3</text>
+<text x="276.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">977/1586</text>
+<rect x="1106.00" y="243.10" width="13.00" height="456.90" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1112.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1112.00 790.00)">911/977</text>
+<rect x="1122.00" y="293.25" width="13.00" height="406.75" rx="0" fill="#009E73" stroke="none"/>
+<text x="1128.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1128.00 815.00)">811/977</text>
+<rect x="1138.00" y="377.51" width="13.00" height="322.49" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1144.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1144.00 840.00)">643/977</text>
+<text x="1130.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B3</text>
+<rect x="327.00" y="301.30" width="46.00" height="398.70" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="327.00" y="301.30" width="46.00" height="0.00" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="327.00" y="210.00" width="46.00" height="91.30" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="350.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B4</text>
+<text x="350.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">131/161</text>
+<rect x="1181.00" y="210.00" width="13.00" height="490.00" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1187.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1187.00 790.00)">131/131</text>
+<rect x="1197.00" y="254.89" width="13.00" height="445.11" rx="0" fill="#009E73" stroke="none"/>
+<text x="1203.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1203.00 815.00)">119/131</text>
+<rect x="1213.00" y="262.37" width="13.00" height="437.63" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1219.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1219.00 840.00)">117/131</text>
+<text x="1205.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B4</text>
+<rect x="401.00" y="374.16" width="46.00" height="325.84" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="401.00" y="374.16" width="46.00" height="0.00" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="401.00" y="210.00" width="46.00" height="164.16" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="424.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B5</text>
+<text x="424.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">131/197</text>
+<rect x="1256.00" y="210.00" width="13.00" height="490.00" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1262.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1262.00 790.00)">131/131</text>
+<rect x="1272.00" y="210.00" width="13.00" height="490.00" rx="0" fill="#009E73" stroke="none"/>
+<text x="1278.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1278.00 815.00)">131/131</text>
+<rect x="1288.00" y="310.99" width="13.00" height="389.01" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1294.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1294.00 840.00)">104/131</text>
+<text x="1280.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B5</text>
+<rect x="475.00" y="244.73" width="46.00" height="455.27" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="475.00" y="226.40" width="46.00" height="18.32" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="475.00" y="210.00" width="46.00" height="16.40" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="498.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B6</text>
+<text x="498.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">2137/2300</text>
+<rect x="1331.00" y="210.00" width="13.00" height="490.00" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1337.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1337.00 790.00)">2137/2137</text>
+<rect x="1347.00" y="323.04" width="13.00" height="376.96" rx="0" fill="#009E73" stroke="none"/>
+<text x="1353.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1353.00 815.00)">1644/2137</text>
+<rect x="1363.00" y="511.06" width="13.00" height="188.94" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1369.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1369.00 840.00)">824/2137</text>
+<text x="1355.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B6</text>
+<rect x="549.00" y="548.38" width="46.00" height="151.62" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="549.00" y="266.01" width="46.00" height="282.36" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="549.00" y="210.00" width="46.00" height="56.01" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="572.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B7</text>
+<text x="572.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">1118/3613</text>
+<rect x="1406.00" y="230.16" width="13.00" height="469.84" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1412.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1412.00 790.00)">1072/1118</text>
+<rect x="1422.00" y="342.36" width="13.00" height="357.64" rx="0" fill="#009E73" stroke="none"/>
+<text x="1428.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1428.00 815.00)">816/1118</text>
+<rect x="1438.00" y="570.71" width="13.00" height="129.29" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1444.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1444.00 840.00)">295/1118</text>
+<text x="1430.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B7</text>
+<rect x="623.00" y="471.67" width="46.00" height="228.33" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="623.00" y="401.67" width="46.00" height="70.00" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="623.00" y="210.00" width="46.00" height="191.67" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="646.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B8</text>
+<text x="646.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">137/294</text>
+<rect x="1481.00" y="210.00" width="13.00" height="490.00" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1487.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1487.00 790.00)">137/137</text>
+<rect x="1497.00" y="481.82" width="13.00" height="218.18" rx="0" fill="#009E73" stroke="none"/>
+<text x="1503.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1503.00 815.00)">61/137</text>
+<rect x="1513.00" y="614.16" width="13.00" height="85.84" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1519.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1519.00 840.00)">24/137</text>
+<text x="1505.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B8</text>
+<rect x="697.00" y="471.68" width="46.00" height="228.32" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="697.00" y="369.51" width="46.00" height="102.17" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="697.00" y="210.00" width="46.00" height="159.51" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="720.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B9</text>
+<text x="720.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">219/470</text>
+<rect x="1556.00" y="210.00" width="13.00" height="490.00" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1562.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1562.00 790.00)">219/219</text>
+<rect x="1572.00" y="337.53" width="13.00" height="362.47" rx="0" fill="#009E73" stroke="none"/>
+<text x="1578.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1578.00 815.00)">162/219</text>
+<rect x="1588.00" y="695.53" width="13.00" height="4.47" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1594.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1594.00 840.00)">2/219</text>
+<text x="1580.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B9</text>
+<rect x="771.00" y="378.78" width="46.00" height="321.22" rx="0" fill="#0072B2" stroke="none"/>
+<rect x="771.00" y="291.67" width="46.00" height="87.11" rx="0" fill="#D55E00" stroke="none"/>
+<rect x="771.00" y="210.00" width="46.00" height="81.67" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="794.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B10</text>
+<text x="794.00" y="754.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" text-anchor="middle">2360/3600</text>
+<rect x="1631.00" y="249.86" width="13.00" height="450.14" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="1637.00" y="790.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1637.00 790.00)">2168/2360</text>
+<rect x="1647.00" y="439.22" width="13.00" height="260.78" rx="0" fill="#009E73" stroke="none"/>
+<text x="1653.00" y="815.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1653.00 815.00)">1256/2360</text>
+<rect x="1663.00" y="658.06" width="13.00" height="41.94" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1669.00" y="840.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" text-anchor="middle" transform="rotate(-35 1669.00 840.00)">202/2360</text>
+<text x="1655.00" y="730.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">B10</text>
+<rect x="110.00" y="875.00" width="16.00" height="16.00" rx="0" fill="#0072B2" stroke="none"/>
+<text x="133.00" y="889.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">Eligible</text>
+<rect x="260.00" y="875.00" width="16.00" height="16.00" rx="0" fill="#D55E00" stroke="none"/>
+<text x="283.00" y="889.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">No exact B1 pair</text>
+<rect x="485.00" y="875.00" width="16.00" height="16.00" rx="0" fill="#B8C3CB" stroke="none"/>
+<text x="508.00" y="889.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">Sparse B1 pair</text>
+<rect x="970.00" y="875.00" width="16.00" height="16.00" rx="0" fill="#CC79A7" stroke="none"/>
+<text x="993.00" y="889.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">q90</text>
+<rect x="1080.00" y="875.00" width="16.00" height="16.00" rx="0" fill="#009E73" stroke="none"/>
+<text x="1103.00" y="889.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">q95</text>
+<rect x="1190.00" y="875.00" width="16.00" height="16.00" rx="0" fill="#D55E00" stroke="none"/>
+<text x="1213.00" y="889.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">q99</text>
+<line x1="535.00" y1="185.00" x2="535.00" y2="810.00" stroke="#53616C" stroke-width="1.5" stroke-dasharray="5,5"/>
+<line x1="1396.00" y1="185.00" x2="1396.00" y2="810.00" stroke="#53616C" stroke-width="1.5" stroke-dasharray="5,5"/>
+<text x="70.00" y="945.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start">B1: in-sample reference counts. B5–6: validation. B7–10: exploratory test (separators before B7).</text>
+<text x="70.00" y="973.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">Cutoffs: q90=0.2536, q95=0.4814, q99=0.9591</text>
+</svg>

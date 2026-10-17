@@ -1,0 +1,625 @@
+{
+  "active_positions_zero_based": [
+    5,
+    6,
+    7
+  ],
+  "archive_sha256": "98fe3a30981a222dd4518fbcc3dddd45d5c0ce9b03ef6dc6fe5cf7a04cfbff5e",
+  "attack_family_by_batch": {
+    "10": {
+      "bias": 87,
+      "freeze": 86,
+      "noise": 86,
+      "replay": 86,
+      "scaling": 87
+    },
+    "2": {
+      "bias": 27,
+      "freeze": 27,
+      "noise": 27,
+      "replay": 27,
+      "scaling": 27
+    },
+    "3": {
+      "bias": 39,
+      "freeze": 38,
+      "noise": 38,
+      "replay": 38,
+      "scaling": 39
+    },
+    "4": {
+      "bias": 3,
+      "freeze": 3,
+      "noise": 3,
+      "replay": 3,
+      "scaling": 3
+    },
+    "5": {
+      "bias": 4,
+      "freeze": 4,
+      "noise": 4,
+      "replay": 4,
+      "scaling": 4
+    },
+    "6": {
+      "bias": 53,
+      "freeze": 52,
+      "noise": 52,
+      "replay": 52,
+      "scaling": 53
+    },
+    "7": {
+      "bias": 79,
+      "freeze": 78,
+      "noise": 78,
+      "replay": 78,
+      "scaling": 78
+    },
+    "8": {
+      "bias": 7,
+      "freeze": 6,
+      "noise": 6,
+      "replay": 6,
+      "scaling": 6
+    },
+    "9": {
+      "bias": 11,
+      "freeze": 11,
+      "noise": 11,
+      "replay": 11,
+      "scaling": 11
+    }
+  },
+  "attack_family_severity_by_split": {
+    "test": {
+      "bias:gain_level=0.05": 63,
+      "bias:gain_level=0.1": 60,
+      "bias:gain_level=0.2": 61,
+      "freeze:None": 181,
+      "noise:0.25": 59,
+      "noise:0.5": 61,
+      "noise:1.0": 61,
+      "replay:None": 181,
+      "scaling:0.05": 61,
+      "scaling:0.1": 61,
+      "scaling:0.2": 60
+    },
+    "train": {
+      "bias:gain_level=0.05": 23,
+      "bias:gain_level=0.1": 23,
+      "bias:gain_level=0.2": 23,
+      "freeze:None": 68,
+      "noise:0.25": 22,
+      "noise:0.5": 23,
+      "noise:1.0": 23,
+      "replay:None": 68,
+      "scaling:0.05": 23,
+      "scaling:0.1": 23,
+      "scaling:0.2": 23
+    },
+    "validation": {
+      "bias:gain_level=0.05": 20,
+      "bias:gain_level=0.1": 18,
+      "bias:gain_level=0.2": 19,
+      "freeze:None": 56,
+      "noise:0.25": 18,
+      "noise:0.5": 18,
+      "noise:1.0": 20,
+      "replay:None": 56,
+      "scaling:0.05": 19,
+      "scaling:0.1": 20,
+      "scaling:0.2": 18
+    }
+  },
+  "bias_condition": "matched_primary",
+  "calibration_digest": "3dd25ca3ad1c66b9a826d70c7714f9e7e08190c84538caef985556b567dab156",
+  "calibration_pool_summary": {
+    "0.05": {
+      "episodes": 342,
+      "max": 0.33977522976561486,
+      "median": 0.050474238288909526,
+      "min": 0.0017905588821309293
+    },
+    "0.1": {
+      "episodes": 342,
+      "max": 0.6795504595312298,
+      "median": 0.10094847657781907,
+      "min": 0.0035811177642618504
+    },
+    "0.2": {
+      "episodes": 342,
+      "max": 1.3591009190624581,
+      "median": 0.20189695315563794,
+      "min": 0.007162235528523701
+    }
+  },
+  "calibration_source_episode_count": 342,
+  "class_counts_by_split": {
+    "test": {
+      "background": 909,
+      "synthetic_attack": 909,
+      "synthetic_drift": 909
+    },
+    "train": {
+      "background": 342,
+      "synthetic_attack": 342,
+      "synthetic_drift": 342
+    },
+    "validation": {
+      "background": 282,
+      "synthetic_attack": 282,
+      "synthetic_drift": 282
+    }
+  },
+  "coverage_by_batch": {
+    "1": {
+      "episodes": 6,
+      "excluded_source_rows": 397,
+      "groups": 87,
+      "groups_with_8_or_more": 6,
+      "source_rows": 445,
+      "used_source_rows": 48
+    },
+    "10": {
+      "episodes": 432,
+      "excluded_source_rows": 144,
+      "groups": 37,
+      "groups_with_8_or_more": 37,
+      "source_rows": 3600,
+      "used_source_rows": 3456
+    },
+    "2": {
+      "episodes": 135,
+      "excluded_source_rows": 164,
+      "groups": 55,
+      "groups_with_8_or_more": 46,
+      "source_rows": 1244,
+      "used_source_rows": 1080
+    },
+    "3": {
+      "episodes": 192,
+      "excluded_source_rows": 50,
+      "groups": 51,
+      "groups_with_8_or_more": 50,
+      "source_rows": 1586,
+      "used_source_rows": 1536
+    },
+    "4": {
+      "episodes": 15,
+      "excluded_source_rows": 41,
+      "groups": 10,
+      "groups_with_8_or_more": 7,
+      "source_rows": 161,
+      "used_source_rows": 120
+    },
+    "5": {
+      "episodes": 20,
+      "excluded_source_rows": 37,
+      "groups": 10,
+      "groups_with_8_or_more": 9,
+      "source_rows": 197,
+      "used_source_rows": 160
+    },
+    "6": {
+      "episodes": 262,
+      "excluded_source_rows": 204,
+      "groups": 57,
+      "groups_with_8_or_more": 21,
+      "source_rows": 2300,
+      "used_source_rows": 2096
+    },
+    "7": {
+      "episodes": 391,
+      "excluded_source_rows": 485,
+      "groups": 182,
+      "groups_with_8_or_more": 141,
+      "source_rows": 3613,
+      "used_source_rows": 3128
+    },
+    "8": {
+      "episodes": 31,
+      "excluded_source_rows": 46,
+      "groups": 13,
+      "groups_with_8_or_more": 7,
+      "source_rows": 294,
+      "used_source_rows": 248
+    },
+    "9": {
+      "episodes": 55,
+      "excluded_source_rows": 30,
+      "groups": 7,
+      "groups_with_8_or_more": 6,
+      "source_rows": 470,
+      "used_source_rows": 440
+    }
+  },
+  "episode_length": 8,
+  "exact_source_vector_duplicates": 0,
+  "generated_vector_duplicates_across_base_episodes": 0,
+  "induced_out_of_training_range_feature_values": {
+    "bias": 218,
+    "freeze": 5,
+    "gradual_gain": 28,
+    "noise": 653,
+    "replay": 4,
+    "scaling": 9
+  },
+  "master_seed": 1729,
+  "mean_standardized_change_by_family": {
+    "bias": {
+      "episodes": 310,
+      "max": 0.6795504595312298,
+      "median": 0.09187727910430715,
+      "min": 0.0017905588821308957
+    },
+    "freeze": {
+      "episodes": 305,
+      "max": 3.303721539826603,
+      "median": 0.11467284531860684,
+      "min": 0.0020797148987957825
+    },
+    "gradual_gain": {
+      "episodes": 1533,
+      "max": 0.8070759002344405,
+      "median": 0.0691309859825298,
+      "min": 0.0016182593604586422
+    },
+    "noise": {
+      "episodes": 305,
+      "max": 1.068449800485594,
+      "median": 0.41443683598292913,
+      "min": 0.12198075381740149
+    },
+    "replay": {
+      "episodes": 305,
+      "max": 16.94679360826618,
+      "median": 0.11916712836125914,
+      "min": 0.0011936158908724642
+    },
+    "scaling": {
+      "episodes": 308,
+      "max": 0.9677734029249927,
+      "median": 0.10229574430840638,
+      "min": 0.005121867384723401
+    }
+  },
+  "original_bias_grid": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "padding_or_duration_mismatch": 0,
+  "paired_bias_drift_by_split_gain": {
+    "test": {
+      "0.05": {
+        "bias_median": 0.04753403970144754,
+        "drift_median": 0.031398804639780335,
+        "episodes": 63,
+        "median_absolute_paired_gap": 0.03532542908117104
+      },
+      "0.1": {
+        "bias_median": 0.10308309684383682,
+        "drift_median": 0.054700001945740595,
+        "episodes": 60,
+        "median_absolute_paired_gap": 0.06479678142228626
+      },
+      "0.2": {
+        "bias_median": 0.19927169337664127,
+        "drift_median": 0.10293138112133932,
+        "episodes": 61,
+        "median_absolute_paired_gap": 0.11360327313914707
+      }
+    },
+    "train": {
+      "0.05": {
+        "bias_median": 0.05435702231458012,
+        "drift_median": 0.03321608811785939,
+        "episodes": 23,
+        "median_absolute_paired_gap": 0.035914897864670385
+      },
+      "0.1": {
+        "bias_median": 0.11199789775738105,
+        "drift_median": 0.10098693273946092,
+        "episodes": 23,
+        "median_absolute_paired_gap": 0.059354985940478236
+      },
+      "0.2": {
+        "bias_median": 0.22542922485503092,
+        "drift_median": 0.2083753559788979,
+        "episodes": 23,
+        "median_absolute_paired_gap": 0.18521698634882952
+      }
+    },
+    "validation": {
+      "0.05": {
+        "bias_median": 0.05650469538638293,
+        "drift_median": 0.02576380093655246,
+        "episodes": 20,
+        "median_absolute_paired_gap": 0.03330607904303048
+      },
+      "0.1": {
+        "bias_median": 0.09116082390090932,
+        "drift_median": 0.07986684133040219,
+        "episodes": 18,
+        "median_absolute_paired_gap": 0.07790179990494694
+      },
+      "0.2": {
+        "bias_median": 0.2678795363230688,
+        "drift_median": 0.16713460529797777,
+        "episodes": 19,
+        "median_absolute_paired_gap": 0.123321398641176
+      }
+    }
+  },
+  "paired_variants_crossing_partitions": 0,
+  "scale_fit_batches": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "scale_max": 107254.1509266123,
+  "scale_median": 7.351872498146776,
+  "scale_min": 0.5879221645663455,
+  "source_row_reuse_across_base_episodes": 0,
+  "standardized_change_by_split_family_severity": {
+    "test": {
+      "bias:gain_level=0.05": {
+        "episodes": 63,
+        "max": 0.11092325976036982,
+        "median": 0.04753403970144754,
+        "min": 0.0017905588821308957
+      },
+      "bias:gain_level=0.1": {
+        "episodes": 60,
+        "max": 0.2752436622554153,
+        "median": 0.10308309684383682,
+        "min": 0.00358111776426185
+      },
+      "bias:gain_level=0.2": {
+        "episodes": 61,
+        "max": 0.5205186220430019,
+        "median": 0.19927169337664127,
+        "min": 0.00859735254962952
+      },
+      "freeze:None": {
+        "episodes": 181,
+        "max": 3.303721539826603,
+        "median": 0.1311918439397251,
+        "min": 0.007063297137999244
+      },
+      "gradual_gain:0.05": {
+        "episodes": 305,
+        "max": 0.2186772486192988,
+        "median": 0.03159192390344329,
+        "min": 0.0016182593604586422
+      },
+      "gradual_gain:0.1": {
+        "episodes": 302,
+        "max": 0.46125638022147664,
+        "median": 0.06538455117653183,
+        "min": 0.002511546379875529
+      },
+      "gradual_gain:0.2": {
+        "episodes": 302,
+        "max": 0.8070759002344405,
+        "median": 0.12145642307179375,
+        "min": 0.007601705927599148
+      },
+      "noise:0.25": {
+        "episodes": 59,
+        "max": 0.2798323060870211,
+        "median": 0.2035709176701288,
+        "min": 0.12198075381740149
+      },
+      "noise:0.5": {
+        "episodes": 61,
+        "max": 0.5281223176282107,
+        "median": 0.40473089883605534,
+        "min": 0.2769523711262946
+      },
+      "noise:1.0": {
+        "episodes": 61,
+        "max": 1.068449800485594,
+        "median": 0.8195071810611118,
+        "min": 0.5404312096398336
+      },
+      "replay:None": {
+        "episodes": 181,
+        "max": 2.3363076471414868,
+        "median": 0.13364268055322212,
+        "min": 0.006386889195898862
+      },
+      "scaling:0.05": {
+        "episodes": 61,
+        "max": 0.23516699255223417,
+        "median": 0.05479523235092501,
+        "min": 0.008220091101990757
+      },
+      "scaling:0.1": {
+        "episodes": 61,
+        "max": 0.34421611630800314,
+        "median": 0.11309786968067888,
+        "min": 0.005121867384723401
+      },
+      "scaling:0.2": {
+        "episodes": 60,
+        "max": 0.9677734029249927,
+        "median": 0.2050297148387411,
+        "min": 0.034251298706838906
+      }
+    },
+    "train": {
+      "bias:gain_level=0.05": {
+        "episodes": 23,
+        "max": 0.13857955674182462,
+        "median": 0.05435702231458012,
+        "min": 0.006280587675894621
+      },
+      "bias:gain_level=0.1": {
+        "episodes": 23,
+        "max": 0.2602593110215008,
+        "median": 0.11199789775738105,
+        "min": 0.014940220867458824
+      },
+      "bias:gain_level=0.2": {
+        "episodes": 23,
+        "max": 0.55048732451083,
+        "median": 0.22542922485503092,
+        "min": 0.012142292560005138
+      },
+      "freeze:None": {
+        "episodes": 68,
+        "max": 1.2602982087006043,
+        "median": 0.06987760969875204,
+        "min": 0.0020797148987957825
+      },
+      "gradual_gain:0.05": {
+        "episodes": 114,
+        "max": 0.33977522976561486,
+        "median": 0.050217216285692035,
+        "min": 0.003737655157427784
+      },
+      "gradual_gain:0.1": {
+        "episodes": 114,
+        "max": 0.2752436622554153,
+        "median": 0.09558043770821528,
+        "min": 0.0035811177642618504
+      },
+      "gradual_gain:0.2": {
+        "episodes": 114,
+        "max": 0.570624088717281,
+        "median": 0.21542333530051277,
+        "min": 0.00859735254962951
+      },
+      "noise:0.25": {
+        "episodes": 22,
+        "max": 0.25641777060749843,
+        "median": 0.2056929443413729,
+        "min": 0.15174309550783377
+      },
+      "noise:0.5": {
+        "episodes": 23,
+        "max": 0.585877814025411,
+        "median": 0.42582436014980574,
+        "min": 0.29630520633068624
+      },
+      "noise:1.0": {
+        "episodes": 23,
+        "max": 1.0157269232416615,
+        "median": 0.7852607730415514,
+        "min": 0.6255382128149958
+      },
+      "replay:None": {
+        "episodes": 68,
+        "max": 16.94679360826618,
+        "median": 0.10202820916708277,
+        "min": 0.0011936158908724642
+      },
+      "scaling:0.05": {
+        "episodes": 23,
+        "max": 0.2036522067549109,
+        "median": 0.0810393034738187,
+        "min": 0.007711352321882029
+      },
+      "scaling:0.1": {
+        "episodes": 23,
+        "max": 0.2915268225076543,
+        "median": 0.0851754614595416,
+        "min": 0.011293579496321787
+      },
+      "scaling:0.2": {
+        "episodes": 23,
+        "max": 0.6153893664319822,
+        "median": 0.31190426272800603,
+        "min": 0.012948389723476568
+      }
+    },
+    "validation": {
+      "bias:gain_level=0.05": {
+        "episodes": 20,
+        "max": 0.1301296555107506,
+        "median": 0.05650469538638293,
+        "min": 0.003901069127638183
+      },
+      "bias:gain_level=0.1": {
+        "episodes": 18,
+        "max": 0.6795504595312298,
+        "median": 0.09116082390090932,
+        "min": 0.0060711462800025215
+      },
+      "bias:gain_level=0.2": {
+        "episodes": 19,
+        "max": 0.5696045282947464,
+        "median": 0.2678795363230688,
+        "min": 0.018659288558712548
+      },
+      "freeze:None": {
+        "episodes": 56,
+        "max": 0.8122604476679011,
+        "median": 0.1367192515878876,
+        "min": 0.01324628489179589
+      },
+      "gradual_gain:0.05": {
+        "episodes": 95,
+        "max": 0.11379157216580499,
+        "median": 0.0358132800660467,
+        "min": 0.003117089428336201
+      },
+      "gradual_gain:0.1": {
+        "episodes": 94,
+        "max": 0.20550252831926474,
+        "median": 0.08809049398264479,
+        "min": 0.00717701572046302
+      },
+      "gradual_gain:0.2": {
+        "episodes": 93,
+        "max": 0.40446987149808167,
+        "median": 0.12976531074449868,
+        "min": 0.01101987020407263
+      },
+      "noise:0.25": {
+        "episodes": 18,
+        "max": 0.27295931810230284,
+        "median": 0.21448155858741608,
+        "min": 0.1645439226760893
+      },
+      "noise:0.5": {
+        "episodes": 18,
+        "max": 0.5323195685010563,
+        "median": 0.40883483078272753,
+        "min": 0.3219894654015861
+      },
+      "noise:1.0": {
+        "episodes": 20,
+        "max": 0.9888638867154155,
+        "median": 0.7240411382950931,
+        "min": 0.5084745762095478
+      },
+      "replay:None": {
+        "episodes": 56,
+        "max": 0.6944587448771621,
+        "median": 0.10835023110854963,
+        "min": 0.007824311864768051
+      },
+      "scaling:0.05": {
+        "episodes": 19,
+        "max": 0.17062416145910395,
+        "median": 0.07316704549439296,
+        "min": 0.006137915179366124
+      },
+      "scaling:0.1": {
+        "episodes": 20,
+        "max": 0.3142279631644194,
+        "median": 0.1028912846614018,
+        "min": 0.010539996845189569
+      },
+      "scaling:0.2": {
+        "episodes": 18,
+        "max": 0.46876928527687595,
+        "median": 0.1388214071931424,
+        "min": 0.023797771903382305
+      }
+    }
+  }
+}

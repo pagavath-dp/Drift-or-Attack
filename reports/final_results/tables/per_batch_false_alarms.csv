@@ -1,0 +1,49 @@
+condition,split,evaluation_status,batch,task,model,numerator,denominator,rate
+matched_primary,validation,validation,5,binary,Isolation Forest,12,20,0.6
+matched_primary,validation,validation,6,binary,Isolation Forest,158,262,0.6030534351145038
+matched_primary,validation,validation,5,binary,Autoencoder,15,20,0.75
+matched_primary,validation,validation,6,binary,Autoencoder,132,262,0.5038167938931297
+matched_primary,validation,validation,5,three_class,Random Forest,14,20,0.7
+matched_primary,validation,validation,6,three_class,Random Forest,136,262,0.5190839694656488
+matched_primary,validation,validation,5,three_class,AE + forest,15,20,0.75
+matched_primary,validation,validation,6,three_class,AE + forest,132,262,0.5038167938931297
+matched_primary,test,exploratory,7,binary,Isolation Forest,350,391,0.8951406649616368
+matched_primary,test,exploratory,8,binary,Isolation Forest,23,31,0.7419354838709677
+matched_primary,test,exploratory,9,binary,Isolation Forest,26,55,0.4727272727272727
+matched_primary,test,exploratory,10,binary,Isolation Forest,432,432,1.0
+matched_primary,test,exploratory,7,binary,Autoencoder,309,391,0.7902813299232737
+matched_primary,test,exploratory,8,binary,Autoencoder,23,31,0.7419354838709677
+matched_primary,test,exploratory,9,binary,Autoencoder,19,55,0.34545454545454546
+matched_primary,test,exploratory,10,binary,Autoencoder,401,432,0.9282407407407407
+matched_primary,test,exploratory,7,three_class,Random Forest,279,391,0.7135549872122762
+matched_primary,test,exploratory,8,three_class,Random Forest,22,31,0.7096774193548387
+matched_primary,test,exploratory,9,three_class,Random Forest,35,55,0.6363636363636364
+matched_primary,test,exploratory,10,three_class,Random Forest,388,432,0.8981481481481481
+matched_primary,test,exploratory,7,three_class,AE + forest,309,391,0.7902813299232737
+matched_primary,test,exploratory,8,three_class,AE + forest,23,31,0.7419354838709677
+matched_primary,test,exploratory,9,three_class,AE + forest,19,55,0.34545454545454546
+matched_primary,test,exploratory,10,three_class,AE + forest,401,432,0.9282407407407407
+original_stress,validation,validation,5,binary,Isolation Forest,12,20,0.6
+original_stress,validation,validation,6,binary,Isolation Forest,158,262,0.6030534351145038
+original_stress,validation,validation,5,binary,Autoencoder,15,20,0.75
+original_stress,validation,validation,6,binary,Autoencoder,132,262,0.5038167938931297
+original_stress,validation,validation,5,three_class,Random Forest,14,20,0.7
+original_stress,validation,validation,6,three_class,Random Forest,136,262,0.5190839694656488
+original_stress,validation,validation,5,three_class,AE + forest,15,20,0.75
+original_stress,validation,validation,6,three_class,AE + forest,132,262,0.5038167938931297
+original_stress,test,exploratory,7,binary,Isolation Forest,350,391,0.8951406649616368
+original_stress,test,exploratory,8,binary,Isolation Forest,23,31,0.7419354838709677
+original_stress,test,exploratory,9,binary,Isolation Forest,26,55,0.4727272727272727
+original_stress,test,exploratory,10,binary,Isolation Forest,432,432,1.0
+original_stress,test,exploratory,7,binary,Autoencoder,309,391,0.7902813299232737
+original_stress,test,exploratory,8,binary,Autoencoder,23,31,0.7419354838709677
+original_stress,test,exploratory,9,binary,Autoencoder,19,55,0.34545454545454546
+original_stress,test,exploratory,10,binary,Autoencoder,401,432,0.9282407407407407
+original_stress,test,exploratory,7,three_class,Random Forest,279,391,0.7135549872122762
+original_stress,test,exploratory,8,three_class,Random Forest,22,31,0.7096774193548387
+original_stress,test,exploratory,9,three_class,Random Forest,35,55,0.6363636363636364
+original_stress,test,exploratory,10,three_class,Random Forest,388,432,0.8981481481481481
+original_stress,test,exploratory,7,three_class,AE + forest,309,391,0.7902813299232737
+original_stress,test,exploratory,8,three_class,AE + forest,23,31,0.7419354838709677
+original_stress,test,exploratory,9,three_class,AE + forest,19,55,0.34545454545454546
+original_stress,test,exploratory,10,three_class,AE + forest,401,432,0.9282407407407407

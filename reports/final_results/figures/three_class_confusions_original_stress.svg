@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1740" height="1020" viewBox="0 0 1740 1020" role="img" aria-label="Track B · three class confusion matrices · original stress">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="52.00" y="48.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="start">Track B · three class confusion matrices · original stress</text>
+<text x="52.00" y="78.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start">Rows are assigned true labels; columns are predictions. Each cell is a count, with its true-row denominator alongside.</text>
+<text x="145.00" y="139.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="start">Random Forest · validation B5–6</text>
+<text x="145.00" y="165.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">n=846 episodes; macro-F1=0.429</text>
+<text x="396.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">background</text>
+<text x="468.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">drift</text>
+<text x="540.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">attack</text>
+<text x="346.00" y="245.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">background  n=282</text>
+<rect x="360.00" y="205.00" width="69.00" height="69.00" rx="3" fill="#b5c3ff" stroke="none"/>
+<text x="396.00" y="244.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">132</text>
+<rect x="432.00" y="205.00" width="69.00" height="69.00" rx="3" fill="#b5c3ff" stroke="none"/>
+<text x="468.00" y="244.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">131</text>
+<rect x="504.00" y="205.00" width="69.00" height="69.00" rx="3" fill="#ecefff" stroke="none"/>
+<text x="540.00" y="244.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">19</text>
+<text x="346.00" y="317.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">drift  n=282</text>
+<rect x="360.00" y="277.00" width="69.00" height="69.00" rx="3" fill="#bcc9ff" stroke="none"/>
+<text x="396.00" y="316.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">117</text>
+<rect x="432.00" y="277.00" width="69.00" height="69.00" rx="3" fill="#aebeff" stroke="none"/>
+<text x="468.00" y="316.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">146</text>
+<rect x="504.00" y="277.00" width="69.00" height="69.00" rx="3" fill="#ecefff" stroke="none"/>
+<text x="540.00" y="316.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">19</text>
+<text x="346.00" y="389.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">attack  n=282</text>
+<rect x="360.00" y="349.00" width="69.00" height="69.00" rx="3" fill="#cdd7ff" stroke="none"/>
+<text x="396.00" y="388.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">83</text>
+<rect x="432.00" y="349.00" width="69.00" height="69.00" rx="3" fill="#becbff" stroke="none"/>
+<text x="468.00" y="388.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">113</text>
+<rect x="504.00" y="349.00" width="69.00" height="69.00" rx="3" fill="#cbd5ff" stroke="none"/>
+<text x="540.00" y="388.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">86</text>
+<text x="965.00" y="139.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="start">Random Forest · exploratory test B7–10</text>
+<text x="965.00" y="165.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">n=2727 episodes; macro-F1=0.393</text>
+<text x="1216.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">background</text>
+<text x="1288.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">drift</text>
+<text x="1360.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">attack</text>
+<text x="1166.00" y="245.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">background  n=909</text>
+<rect x="1180.00" y="205.00" width="69.00" height="69.00" rx="3" fill="#d9e0ff" stroke="none"/>
+<text x="1216.00" y="244.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">185</text>
+<rect x="1252.00" y="205.00" width="69.00" height="69.00" rx="3" fill="#98acff" stroke="none"/>
+<text x="1288.00" y="244.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">613</text>
+<rect x="1324.00" y="205.00" width="69.00" height="69.00" rx="3" fill="#e5eaff" stroke="none"/>
+<text x="1360.00" y="244.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">111</text>
+<text x="1166.00" y="317.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">drift  n=909</text>
+<rect x="1180.00" y="277.00" width="69.00" height="69.00" rx="3" fill="#dbe2ff" stroke="none"/>
+<text x="1216.00" y="316.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">174</text>
+<rect x="1252.00" y="277.00" width="69.00" height="69.00" rx="3" fill="#98acff" stroke="none"/>
+<text x="1288.00" y="316.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">618</text>
+<rect x="1324.00" y="277.00" width="69.00" height="69.00" rx="3" fill="#e4e9ff" stroke="none"/>
+<text x="1360.00" y="316.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">117</text>
+<text x="1166.00" y="389.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">attack  n=909</text>
+<rect x="1180.00" y="349.00" width="69.00" height="69.00" rx="3" fill="#e4e9ff" stroke="none"/>
+<text x="1216.00" y="388.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">114</text>
+<rect x="1252.00" y="349.00" width="69.00" height="69.00" rx="3" fill="#adbdff" stroke="none"/>
+<text x="1288.00" y="388.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">476</text>
+<rect x="1324.00" y="349.00" width="69.00" height="69.00" rx="3" fill="#c5d0ff" stroke="none"/>
+<text x="1360.00" y="388.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">319</text>
+<text x="145.00" y="529.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="start">AE + forest · validation B5–6</text>
+<text x="145.00" y="555.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">n=846 episodes; macro-F1=0.406</text>
+<text x="396.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">background</text>
+<text x="468.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">drift</text>
+<text x="540.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">attack</text>
+<text x="346.00" y="635.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">background  n=282</text>
+<rect x="360.00" y="595.00" width="69.00" height="69.00" rx="3" fill="#b3c2ff" stroke="none"/>
+<text x="396.00" y="634.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">135</text>
+<rect x="432.00" y="595.00" width="69.00" height="69.00" rx="3" fill="#b6c4ff" stroke="none"/>
+<text x="468.00" y="634.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">130</text>
+<rect x="504.00" y="595.00" width="69.00" height="69.00" rx="3" fill="#edf0ff" stroke="none"/>
+<text x="540.00" y="634.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">17</text>
+<text x="346.00" y="707.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">drift  n=282</text>
+<rect x="360.00" y="667.00" width="69.00" height="69.00" rx="3" fill="#bdcaff" stroke="none"/>
+<text x="396.00" y="706.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">115</text>
+<rect x="432.00" y="667.00" width="69.00" height="69.00" rx="3" fill="#acbcff" stroke="none"/>
+<text x="468.00" y="706.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">150</text>
+<rect x="504.00" y="667.00" width="69.00" height="69.00" rx="3" fill="#edf0ff" stroke="none"/>
+<text x="540.00" y="706.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">17</text>
+<text x="346.00" y="779.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">attack  n=282</text>
+<rect x="360.00" y="739.00" width="69.00" height="69.00" rx="3" fill="#d0d9ff" stroke="none"/>
+<text x="396.00" y="778.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">76</text>
+<rect x="432.00" y="739.00" width="69.00" height="69.00" rx="3" fill="#b1c0ff" stroke="none"/>
+<text x="468.00" y="778.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">140</text>
+<rect x="504.00" y="739.00" width="69.00" height="69.00" rx="3" fill="#d5ddff" stroke="none"/>
+<text x="540.00" y="778.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">66</text>
+<text x="965.00" y="529.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="start">AE + forest · exploratory test B7–10</text>
+<text x="965.00" y="555.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">n=2727 episodes; macro-F1=0.376</text>
+<text x="1216.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">background</text>
+<text x="1288.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">drift</text>
+<text x="1360.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">attack</text>
+<text x="1166.00" y="635.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">background  n=909</text>
+<rect x="1180.00" y="595.00" width="69.00" height="69.00" rx="3" fill="#dee4ff" stroke="none"/>
+<text x="1216.00" y="634.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">157</text>
+<rect x="1252.00" y="595.00" width="69.00" height="69.00" rx="3" fill="#93a8ff" stroke="none"/>
+<text x="1288.00" y="634.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">646</text>
+<rect x="1324.00" y="595.00" width="69.00" height="69.00" rx="3" fill="#e5eaff" stroke="none"/>
+<text x="1360.00" y="634.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">106</text>
+<text x="1166.00" y="707.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">drift  n=909</text>
+<rect x="1180.00" y="667.00" width="69.00" height="69.00" rx="3" fill="#e0e6ff" stroke="none"/>
+<text x="1216.00" y="706.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">143</text>
+<rect x="1252.00" y="667.00" width="69.00" height="69.00" rx="3" fill="#92a7ff" stroke="none"/>
+<text x="1288.00" y="706.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">653</text>
+<rect x="1324.00" y="667.00" width="69.00" height="69.00" rx="3" fill="#e4e9ff" stroke="none"/>
+<text x="1360.00" y="706.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">113</text>
+<text x="1166.00" y="779.32" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">attack  n=909</text>
+<rect x="1180.00" y="739.00" width="69.00" height="69.00" rx="3" fill="#e6ebff" stroke="none"/>
+<text x="1216.00" y="778.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">103</text>
+<rect x="1252.00" y="739.00" width="69.00" height="69.00" rx="3" fill="#a7b8ff" stroke="none"/>
+<text x="1288.00" y="778.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">516</text>
+<rect x="1324.00" y="739.00" width="69.00" height="69.00" rx="3" fill="#c9d3ff" stroke="none"/>
+<text x="1360.00" y="778.60" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">290</text>
+<text x="55.00" y="960.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start">The binary task combines drift and attack as intervention; its macro-F1 is not compared with three-class macro-F1.</text>
+</svg>

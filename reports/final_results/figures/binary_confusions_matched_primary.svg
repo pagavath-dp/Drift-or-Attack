@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1740" height="1020" viewBox="0 0 1740 1020" role="img" aria-label="Track B · binary confusion matrices · matched primary">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="52.00" y="48.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="start">Track B · binary confusion matrices · matched primary</text>
+<text x="52.00" y="78.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start">Rows are assigned true labels; columns are predictions. Each cell is a count, with its true-row denominator alongside.</text>
+<text x="145.00" y="139.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="start">Isolation Forest · validation B5–6</text>
+<text x="145.00" y="165.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">n=846 episodes; macro-F1=0.528</text>
+<text x="403.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">background</text>
+<text x="489.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">intervention</text>
+<text x="346.00" y="253.16" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">background  n=282</text>
+<rect x="360.00" y="205.00" width="83.00" height="83.00" rx="3" fill="#bfcbff" stroke="none"/>
+<text x="403.00" y="252.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">112</text>
+<rect x="446.00" y="205.00" width="83.00" height="83.00" rx="3" fill="#a2b4ff" stroke="none"/>
+<text x="489.00" y="252.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">170</text>
+<text x="346.00" y="339.16" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">intervention  n=564</text>
+<rect x="360.00" y="291.00" width="83.00" height="83.00" rx="3" fill="#c7d2ff" stroke="none"/>
+<text x="403.00" y="338.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">191</text>
+<rect x="446.00" y="291.00" width="83.00" height="83.00" rx="3" fill="#9aaeff" stroke="none"/>
+<text x="489.00" y="338.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">373</text>
+<text x="965.00" y="139.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="start">Isolation Forest · exploratory test B7–10</text>
+<text x="965.00" y="165.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">n=2727 episodes; macro-F1=0.459</text>
+<text x="1223.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">background</text>
+<text x="1309.00" y="195.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">intervention</text>
+<text x="1166.00" y="253.16" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">background  n=909</text>
+<rect x="1180.00" y="205.00" width="83.00" height="83.00" rx="3" fill="#eaeeff" stroke="none"/>
+<text x="1223.00" y="252.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">78</text>
+<rect x="1266.00" y="205.00" width="83.00" height="83.00" rx="3" fill="#7792ff" stroke="none"/>
+<text x="1309.00" y="252.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">831</text>
+<text x="1166.00" y="339.16" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">intervention  n=1818</text>
+<rect x="1180.00" y="291.00" width="83.00" height="83.00" rx="3" fill="#ecefff" stroke="none"/>
+<text x="1223.00" y="338.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">131</text>
+<rect x="1266.00" y="291.00" width="83.00" height="83.00" rx="3" fill="#7590ff" stroke="none"/>
+<text x="1309.00" y="338.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">1687</text>
+<text x="145.00" y="529.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="start">Autoencoder · validation B5–6</text>
+<text x="145.00" y="555.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">n=846 episodes; macro-F1=0.546</text>
+<text x="403.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">background</text>
+<text x="489.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">intervention</text>
+<text x="346.00" y="643.16" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">background  n=282</text>
+<rect x="360.00" y="595.00" width="83.00" height="83.00" rx="3" fill="#b3c2ff" stroke="none"/>
+<text x="403.00" y="642.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">135</text>
+<rect x="446.00" y="595.00" width="83.00" height="83.00" rx="3" fill="#aebeff" stroke="none"/>
+<text x="489.00" y="642.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">147</text>
+<text x="346.00" y="729.16" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">intervention  n=564</text>
+<rect x="360.00" y="681.00" width="83.00" height="83.00" rx="3" fill="#c2ceff" stroke="none"/>
+<text x="403.00" y="728.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">212</text>
+<rect x="446.00" y="681.00" width="83.00" height="83.00" rx="3" fill="#9fb2ff" stroke="none"/>
+<text x="489.00" y="728.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">352</text>
+<text x="965.00" y="529.00" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="start">Autoencoder · exploratory test B7–10</text>
+<text x="965.00" y="555.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="start">n=2727 episodes; macro-F1=0.495</text>
+<text x="1223.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">background</text>
+<text x="1309.00" y="585.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="middle">intervention</text>
+<text x="1166.00" y="643.16" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">background  n=909</text>
+<rect x="1180.00" y="595.00" width="83.00" height="83.00" rx="3" fill="#dee4ff" stroke="none"/>
+<text x="1223.00" y="642.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">157</text>
+<rect x="1266.00" y="595.00" width="83.00" height="83.00" rx="3" fill="#839bff" stroke="none"/>
+<text x="1309.00" y="642.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">752</text>
+<text x="1166.00" y="729.16" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" text-anchor="end">intervention  n=1818</text>
+<rect x="1180.00" y="681.00" width="83.00" height="83.00" rx="3" fill="#e1e7ff" stroke="none"/>
+<text x="1223.00" y="728.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">264</text>
+<rect x="1266.00" y="681.00" width="83.00" height="83.00" rx="3" fill="#8099ff" stroke="none"/>
+<text x="1309.00" y="728.30" fill="#18232D" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">1554</text>
+<text x="55.00" y="960.00" fill="#53616C" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start">The binary task combines drift and attack as intervention; its macro-F1 is not compared with three-class macro-F1.</text>
+</svg>

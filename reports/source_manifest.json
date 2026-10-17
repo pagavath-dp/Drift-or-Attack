@@ -1,0 +1,83 @@
+{
+  "archive_bytes": 10118308,
+  "archive_sha256": "98fe3a30981a222dd4518fbcc3dddd45d5c0ce9b03ef6dc6fe5cf7a04cfbff5e",
+  "archive_url": "https://archive.ics.uci.edu/static/public/270/gas%2Bsensor%2Barray%2Bdrift%2Bdataset%2Bat%2Bdifferent%2Bconcentrations.zip",
+  "concentration_by_gas": {
+    "1": {
+      "distinct": 35,
+      "gas": "Ethanol",
+      "max": 600.0,
+      "min": 2.5
+    },
+    "2": {
+      "distinct": 38,
+      "gas": "Ethylene",
+      "max": 300.0,
+      "min": 2.5
+    },
+    "3": {
+      "distinct": 44,
+      "gas": "Ammonia",
+      "max": 1000.0,
+      "min": 2.5
+    },
+    "4": {
+      "distinct": 37,
+      "gas": "Acetaldehyde",
+      "max": 300.0,
+      "min": 2.5
+    },
+    "5": {
+      "distinct": 47,
+      "gas": "Acetone",
+      "max": 1000.0,
+      "min": 10.0
+    },
+    "6": {
+      "distinct": 32,
+      "gas": "Toluene",
+      "max": 230.0,
+      "min": 1.0
+    }
+  },
+  "cutoffs": {
+    "0.9": 0.25360475874889027,
+    "0.95": 0.4813998602600061,
+    "0.99": 0.9591285952050659
+  },
+  "feature_count_per_row": 128,
+  "pdf_sha256": {
+    "Drift or Attack AIot.pdf": "0f8b3ea3c49ae8a92b210baefc65f4d0970d4f267ea7d0cd693629c32e3d40aa",
+    "drift_or_attack_IEEE_report.pdf": "eab289504443e08d22ec36cbc1f7a5f88bdbeac911fd6bdf9fa000b3b822cab0",
+    "drift_or_attack_IEEE_turnitin.pdf": "1e2cbf94c22e36911e7f29e1bfd59177044df440908efb6507cc927e94491232"
+  },
+  "reference_groups_all": 87,
+  "reference_groups_eligible": 67,
+  "reference_rows_for_leave_one_out": 395,
+  "source_page": "https://archive.ics.uci.edu/dataset/270/gas+sensor+array+drift+dataset+at+different+concentrations",
+  "splits": {
+    "1": "reference",
+    "10": "test",
+    "2": "train",
+    "3": "train",
+    "4": "train",
+    "5": "validation",
+    "6": "validation",
+    "7": "test",
+    "8": "test",
+    "9": "test"
+  },
+  "total_rows": 13910,
+  "zip_members": [
+    "batch1.dat",
+    "batch2.dat",
+    "batch3.dat",
+    "batch4.dat",
+    "batch5.dat",
+    "batch6.dat",
+    "batch7.dat",
+    "batch8.dat",
+    "batch9.dat",
+    "batch10.dat"
+  ]
+}

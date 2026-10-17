@@ -1,0 +1,19 @@
+{
+  "archive_sha256": "98fe3a30981a222dd4518fbcc3dddd45d5c0ce9b03ef6dc6fe5cf7a04cfbff5e",
+  "calibration_digest": "3dd25ca3ad1c66b9a826d70c7714f9e7e08190c84538caef985556b567dab156",
+  "interpretation": "Derived figures/tables only; no model predictions recalculated.",
+  "source_sha256": {
+    "Drift or Attack AIot.pdf": "0f8b3ea3c49ae8a92b210baefc65f4d0970d4f267ea7d0cd693629c32e3d40aa",
+    "batch_gas_summary.csv": "1c17b62ab4af58171a58eae269881b31cb2a1be60ff9b72db0828efa1c5f3b35",
+    "batch_summary.csv": "f1d32bb35b8e5bee601c739cccaf7af594eb392d0d49938d8b65c74f26791a5e",
+    "data/raw/uci-270.zip": "98fe3a30981a222dd4518fbcc3dddd45d5c0ce9b03ef6dc6fe5cf7a04cfbff5e",
+    "data_audit.md": "0c958c916b7f5a571d0f2269da730076868b4e1b53bedc9b31918fed1d1fe647",
+    "drift_or_attack_IEEE_report.pdf": "eab289504443e08d22ec36cbc1f7a5f88bdbeac911fd6bdf9fa000b3b822cab0",
+    "drift_or_attack_IEEE_turnitin.pdf": "1e2cbf94c22e36911e7f29e1bfd59177044df440908efb6507cc927e94491232",
+    "experimental_protocol.md": "5b7cf0100ef84183882671ef946af571932d975f984e7791a6598c38344d592e",
+    "ml_autoencoder.json": "cc75c1f3f3034b8958f2861c068859557caca069fabd7bd1f3122cf2d22771b6",
+    "ml_baselines.json": "1832c13d511fbc19e540fa10838d297ee5037f8d60e5e7fd7130cdbf25b98314",
+    "ml_preflight.json": "adf38d7925c0d09b78696fb1cb8bf5ee5f224d441717db362bb2b53cc6da3169",
+    "source_manifest.json": "13ef0ec5a07ac89068fe36a3f12ed6f10d65cea0be44cc253ca466484856e331"
+  }
+}
