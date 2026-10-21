@@ -23,13 +23,13 @@ This checklist follows `C:\Users\Laptop\Downloads\FISAC QP.odt` (read on 21 Octo
 ## Package and verification before upload
 
 - [x] Read-only verification path and temporary generation tests are in place. The 34 frozen `reports/` files match the original committed contents under the documented LF/CRLF policy.
-- [ ] Run `py -3.13 -B -m scripts.verify_frozen --reports reports` (or a Python 3.10+ executable). Record its exit code and diagnostics in the handoff. Exit `2` currently means the saved reports pass but recorded external inputs are absent.
+- [x] Run `scripts.verify_frozen` with Python 3.10+ and record its exit code. It now exits `0` locally: all four external inputs and 34 frozen reports pass. Rerun it before upload; this does not establish fresh model reproduction.
 - [ ] Cross-check the final PDF, slides, captions, class order, numbers, and citations against the frozen reports. Verify figure legibility after compilation and confirm that no saved result or preflight file changed.
 - [ ] Confirm the exact LMS cutoff, upload format, team roster/professor approval, and any separate final rubric. Upload the compiled report, required source/figures, slides, and final similarity report as directed by the course.
 
-## Files and decisions the team must supply
+## Files and decisions the team must supply or verify
 
 1. Prescribed LaTeX template, final report source/PDF, slide deck, and final-document Turnitin report; none is in this checkout.
 2. Selected paper full texts or verified citation details, plus a defensible literature comparison and gap. The proposal's references alone do not complete this requirement.
 3. Exact LMS deadline and upload rules, professor feedback, team/approval status, and any additional course rubric.
-4. For *fresh reproduction only*: the pinned `data/raw/uci-270.zip`, three root-level provenance PDFs named in `reports/source_manifest.json`, and an equivalent Python environment. The matching proposal PDF was found at `C:\Users\Laptop\Downloads\Drift or Attack AIot.pdf` but is absent from the recorded root path. A differently named PDF in Downloads does not match the recorded report digest; the other recorded PDFs and raw archive remain unavailable at their expected paths. These inputs are not a reason to change the frozen course results.
+4. For *fresh reproduction*: the pinned `data/raw/uci-270.zip` is present locally, and an ignored Windows Python 3.13.16 environment passes the exact package gate. The three root-level provenance PDFs are present and required for strict historical verification, but are not model inputs. The isolated Windows run stopped at a preflight numeric difference and also produced different RF selection and matrices. The team must disclose that fresh episode predictions and gas-specific error rates are unverified; preserve the frozen course results. The archive, outer ZIP, PDFs, and ignored environment need deliberate review before any inclusion in a code submission.

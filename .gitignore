@@ -1,6 +1,9 @@
 .venv/
 data/raw/
 reproductions/
+Drift or Attack AIot.pdf
+drift_or_attack_IEEE_report.pdf
+drift_or_attack_IEEE_turnitin.pdf
 __pycache__/
 *.py[cod]
 .DS_Store

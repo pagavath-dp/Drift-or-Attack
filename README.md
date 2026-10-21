@@ -2,14 +2,14 @@
 
 This repository contains a saved audit and model comparison using the UCI Gas Sensor Array Drift at Different Concentrations dataset. It classifies **assigned feature-space simulations**, not verified natural sensor aging or real cyberattacks. Batches 7–10 are exploratory because their audit distributions were inspected before the protocol was frozen. The protocol and saved results are in `docs/experimental_protocol.md` and `reports/`.
 
-The checkout does **not** contain the raw UCI archive, the three root-level PDFs recorded in `reports/source_manifest.json`, or a `.venv`. The PDFs are required for strict historical provenance verification; they are not model inputs for a new isolated scientific run. That run requires the pinned archive and locked Python environment. Do not replace a recorded hash to accommodate a different download or document.
+This local checkout contains the pinned UCI archive and all three root-level PDFs recorded in `reports/source_manifest.json`; `scripts.verify_frozen` verifies their exact hashes and all 34 frozen reports. They are external inputs and are not part of the intended code commit. The PDFs are required for strict historical provenance verification, but are not model inputs for a new isolated scientific run. A repository-root `.venv` is absent. Do not replace a recorded hash to accommodate a different download or document.
 
 ## Safe Windows verification
 
-From PowerShell in the repository root, use Python 3.13 or another Python 3.10+ interpreter for the standard-library-only verifier:
+From PowerShell in this checkout, use the locally established Python 3.13 environment for the standard-library-only verifier (`py -3.13` is also suitable on a machine with the Windows Python launcher):
 
 ```powershell
-py -3.13 -B -m scripts.verify_frozen --reports reports
+& .\reproductions\toolchain\python-embed-3.13.16\python.exe -B -m scripts.verify_frozen --reports reports
 ```
 
 The command only reads files; `-B` also prevents Python bytecode cache writes. It checks recorded input hashes, all 34 checked-in report files against `docs/frozen_report_hashes.json` (digests of the original Git commit), saved report arithmetic and provenance, derived CSV tables, and the seven SVG files. Exit code `0` means all recorded inputs and saved artifacts passed; `2` means the saved artifacts passed but one or more external inputs are missing; `1` means an available input or saved artifact failed verification. Its output names each missing file or mismatch separately.
@@ -36,7 +36,7 @@ $env:PYTHONPATH = 'src'
 & .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-The tests that generate final figures and tables write only to a temporary directory; the integration preflight test skips when the raw archive is absent. The AE training runner additionally requires the packages pinned in `requirements-ae.lock`. Package installation and an equivalent training environment have not been verified in this checkout.
+The tests that generate final figures and tables write only to a temporary directory; the integration preflight test uses a temporary output directory when the raw archive is present. The AE training runner additionally requires the packages pinned in `requirements-ae.lock`. A local Windows Python 3.13.16 environment with those exact package versions was established under ignored `reproductions/toolchain/`; `scripts.reproduce_models --check-only` passed there. Equivalent generated model evidence has **not** been established.
 
 ## Reproduction and write paths
 
@@ -45,14 +45,18 @@ The audit, episode audit, preflight, baseline, AE, and final-results builder are
 For a **new isolated model reproduction**, `scripts.reproduce_models` checks the pinned archive, Python 3.13, every version in `requirements-ae.lock`, and all frozen report hashes before generating anything. It copies only the frozen calibration/preflight input evidence to a new output directory; the old PDFs are not read. It fits the existing baseline and AE runners unchanged in their choices, compares generated validation and exploratory matrices and selected thresholds with the frozen JSON, then reconstructs those matrices from per-episode rows. It writes `episode_predictions.csv` and `matrix_comparison.json` only after every comparison passes. An incomplete or mismatched run leaves only isolated diagnostic outputs, never a validated prediction export. The CSV carries episode ID, split, condition, batch, gas/concentration as audit metadata, true label, RF prediction and probabilities, AE score, AE binary decision, and AE-gated prediction. Gas and concentration remain excluded from model inputs.
 
 ```powershell
-py -3.13 -m venv .venv
-& .\.venv\Scripts\python.exe -m pip install -r requirements-ae.lock
-& .\.venv\Scripts\python.exe -B -m scripts.reproduce_models --check-only --archive data/raw/uci-270.zip
-& .\.venv\Scripts\python.exe -B -m scripts.reproduce_models --archive data/raw/uci-270.zip --output reproductions/run-2026-10-22
+$python = '.\reproductions\toolchain\python-embed-3.13.16\python.exe'
+& $python -B -m scripts.reproduce_models --check-only --archive data/raw/uci-270.zip
+# Only after the check passes, choose a new output directory for an isolated run:
+& $python -B -m scripts.reproduce_models --archive data/raw/uci-270.zip --output reproductions/run-new
 ```
+
+On a new Windows checkout, install Python 3.13 and the exact `requirements-ae.lock` packages in a separate environment before using these commands; the ignored `reproductions/toolchain/` directory is local and is not distributed with the repository. The already attempted Windows run did not pass the exact comparison gate, so a new run may stop before export as well.
 
 The output path must be new and outside frozen `reports/`; use a new name for another attempt. The archive must match SHA-256 `98fe3a30981a222dd4518fbcc3dddd45d5c0ce9b03ef6dc6fe5cf7a04cfbff5e`. The saved reports remain authoritative if a reproduction differs.
 
+**Windows checkpoint, 21 October 2026:** One isolated run at `reproductions/run-2026-10-21-windows/` stopped before AE fitting and prediction export because two generated preflight validation noise medians differ from the frozen JSON by approximately `1.1e-16`. The already generated baseline diagnostics also selected RF `min_samples_leaf=5` instead of the frozen `1`, with different RF confusion matrices; the Isolation Forest threshold and matrices matched. Do not treat this directory as a reproduced result or use it for gas-specific error rates. The ignored environment and diagnostics may be absent in another checkout.
+
 The fixed split is Batch 1 reference, Batches 2–4 training, Batches 5–6 validation, and Batches 7–10 exploratory test. The synthetic families are bias, scaling, noise, freeze, and replay. Freeze and replay are exact-copy controls with deterministic signatures. Binary intervention detection and three-class background/drift/attack classification are separate tasks. The matched-primary exploratory three-class macro-F1 is 0.3873 for RF and 0.3694 for AE-gated RF; their background intervention flags are 724/909 and 752/909, respectively. These are frozen results, not deployment performance.
 
-For the 24 October course submission, use `docs/submission_note.md` for methodology, the implemented/proposed architecture boundary, and results wording; `docs/course_submission_checklist.md` for required sections and team-supplied files; and `docs/future-paper-gap.md` only as an after-submission research handoff. The opening status line in the frozen experimental protocol describes an earlier packaging state; this README states what is present in the current checkout.
+For the 24 October course submission, use `docs/submission_note.md` for methodology, the implemented/proposed architecture boundary, and results wording; `docs/course_submission_checklist.md` for required sections and team-supplied files; and `docs/future-paper-gap.md` for the active research-validation tasks that may continue after upload. The opening status line in the frozen experimental protocol describes an earlier packaging state; this README states what is present in the current checkout.
