@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 from statistics import median
 
-from .audit import APPROVED_ARCHIVE_SHA256, file_sha256
+from .audit import APPROVED_ARCHIVE_SHA256, file_sha256, reject_frozen_output
 from .dataset import load_archive
 from .episodes import (ACTIVE_POSITIONS, GAIN_LEVELS, calibration_payload,
                        changed_positions, construct_episodes, fit_generator_scales,
@@ -33,6 +33,7 @@ def exact_copy_signature(features) -> dict[str, int]:
 
 
 def inspect(archive: Path, reports: Path) -> dict:
+    reject_frozen_output(reports)
     if file_sha256(archive) != APPROVED_ARCHIVE_SHA256:
         raise ValueError("unapproved source archive")
     batches = load_archive(archive)
@@ -165,7 +166,7 @@ def inspect(archive: Path, reports: Path) -> dict:
         ],
     }
     reports.mkdir(parents=True, exist_ok=True)
-    (reports / "ml_preflight.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    (reports / "ml_preflight.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return result
 
 

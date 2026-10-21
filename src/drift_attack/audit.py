@@ -43,7 +43,15 @@ def file_sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def reject_frozen_output(output: Path) -> None:
+    """Keep generation commands out of this checkout's frozen reports tree."""
+    frozen = Path(__file__).resolve().parents[2] / "reports"
+    if output.resolve().is_relative_to(frozen.resolve()):
+        raise ValueError("generation output must be outside frozen reports/")
+
+
 def audit(archive: Path, output: Path, project_root: Path) -> dict:
+    reject_frozen_output(output)
     archive_hash = file_sha256(archive)
     if archive_hash != APPROVED_ARCHIVE_SHA256:
         raise ValueError("archive SHA-256 differs from the inspected UCI download; inspect it before parsing")

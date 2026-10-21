@@ -11,7 +11,7 @@ from pathlib import Path
 from statistics import median
 from struct import pack
 
-from .audit import APPROVED_ARCHIVE_SHA256, file_sha256
+from .audit import APPROVED_ARCHIVE_SHA256, file_sha256, reject_frozen_output
 from .dataset import load_archive
 from .episodes import (ACTIVE_POSITIONS, ATTACK_FAMILIES, MASTER_SEED,
                        BIAS_CONDITIONS, BIAS_LEVELS, GAIN_LEVELS,
@@ -21,6 +21,7 @@ from .episodes import (ACTIVE_POSITIONS, ATTACK_FAMILIES, MASTER_SEED,
 
 
 def inspect(archive: Path, output: Path, condition: str) -> dict:
+    reject_frozen_output(output)
     if condition not in BIAS_CONDITIONS:
         raise ValueError("unknown bias condition")
     if file_sha256(archive) != APPROVED_ARCHIVE_SHA256:

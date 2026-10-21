@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
-from .audit import APPROVED_ARCHIVE_SHA256, file_sha256
+from .audit import APPROVED_ARCHIVE_SHA256, file_sha256, reject_frozen_output
 from .dataset import load_archive
 from .episodes import construct_episodes, fit_generator_scales, fit_magnitude_calibration
 from .features import INPUT_WIDTH, episode_features, fit_feature_scale
@@ -97,7 +97,8 @@ def _gated_predictions(scores: np.ndarray, threshold: float, probabilities: np.n
             for score, row in zip(scores, probabilities)]
 
 
-def run(archive: Path, reports: Path) -> dict:
+def run(archive: Path, reports: Path, *, prediction_rows: list[dict] | None = None) -> dict:
+    reject_frozen_output(reports)
     if file_sha256(archive) != APPROVED_ARCHIVE_SHA256:
         raise ValueError("unapproved source archive")
     preflight = run_preflight(archive, reports)
@@ -201,8 +202,23 @@ def run(archive: Path, reports: Path) -> dict:
             scores = _score(final_model, _normalize(values["X"], center, spread))
             binary_truth = ["background" if label == "background" else "intervention" for label in truth]
             binary_predicted = ["intervention" if score > threshold else "background" for score in scores]
-            combined_predicted = _gated_predictions(scores, threshold, forest.predict_proba(values["X"]),
+            probabilities = forest.predict_proba(values["X"])
+            combined_predicted = _gated_predictions(scores, threshold, probabilities,
                                                      forest.classes_.tolist())
+            if prediction_rows is not None:
+                class_index = {label: index for index, label in enumerate(forest.classes_)}
+                refit_predicted = forest.predict(values["X"]).tolist()
+                for metadata, label, score, binary_label, gated_label, refit_label, probability in zip(
+                        values["metadata"], truth, scores, binary_predicted, combined_predicted,
+                        refit_predicted, probabilities, strict=True):
+                    prediction_rows.append({
+                        "condition": condition, "split": split,
+                        "episode_id": metadata["episode_id"], "true_label": label,
+                        "ae_score": float(score), "ae_binary_predicted": binary_label,
+                        "gated_predicted": gated_label, "refit_rf_predicted": refit_label,
+                        **{f"refit_rf_prob_{name}": float(probability[class_index[name]])
+                           for name in ("background", "synthetic_drift", "synthetic_attack")},
+                    })
             binary = _binary_metrics(binary_truth, binary_predicted, truth)
             binary.update(_breakdowns(truth, binary_predicted, values["metadata"], True, condition))
             combined = _classification_metrics(truth, combined_predicted)
@@ -210,8 +226,8 @@ def run(archive: Path, reports: Path) -> dict:
             result["conditions"][condition][split] = {
                 "autoencoder_only_binary": binary, "autoencoder_plus_forest": combined}
     reports.mkdir(parents=True, exist_ok=True)
-    (reports / "ml_autoencoder.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
-    (reports / "ml_autoencoder.md").write_text(_markdown(result, baseline))
+    (reports / "ml_autoencoder.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (reports / "ml_autoencoder.md").write_text(_markdown(result, baseline), encoding="utf-8")
     return result
 
 

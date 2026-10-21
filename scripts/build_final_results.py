@@ -636,6 +636,9 @@ def build_report(data: dict, batches: list[dict], tables: dict[str, list[dict]],
 
 
 def build(reports: Path, output: Path, require_external_inputs: bool = True) -> list[Path]:
+    frozen = Path(__file__).resolve().parents[1] / "reports"
+    require(not output.resolve().is_relative_to(frozen.resolve()),
+            "generated output must be outside frozen reports/ in this checkout")
     data, batches, provenance = load_and_validate(reports, require_external_inputs)
     require(not output.exists() or output.is_dir(), "output path exists but is not a directory")
     require(not output.resolve().is_relative_to(reports.resolve()),

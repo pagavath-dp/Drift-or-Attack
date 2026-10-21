@@ -12,7 +12,7 @@ import numpy as np
 from sklearn.ensemble import IsolationForest, RandomForestClassifier
 from sklearn.metrics import confusion_matrix, f1_score
 
-from .audit import APPROVED_ARCHIVE_SHA256, file_sha256
+from .audit import APPROVED_ARCHIVE_SHA256, file_sha256, reject_frozen_output
 from .dataset import load_archive
 from .episodes import (GAIN_LEVELS, construct_episodes, fit_generator_scales,
                        fit_magnitude_calibration, generate_variants)
@@ -129,6 +129,8 @@ def _build_datasets(batches: dict, condition: str, scale, generator_scales, cali
                 "label": variant.label,
                 "batch": episode.batch,
                 "episode_id": episode.episode_id,
+                "gas_code": episode.gas,
+                "concentration": episode.concentration,
                 "family": variant.family,
                 "level": level,
                 "severity": variant.severity,
@@ -173,7 +175,8 @@ def _breakdowns(true: list[str], predicted: list[str], metadata: list[dict],
     return {"per_batch": by_batch_result, "per_family_severity": family_result}
 
 
-def run(archive: Path, reports: Path) -> dict:
+def run(archive: Path, reports: Path, *, prediction_rows: list[dict] | None = None) -> dict:
+    reject_frozen_output(reports)
     preflight = run_preflight(archive, reports)  # mandatory before any fit
     if file_sha256(archive) != APPROVED_ARCHIVE_SHA256:
         raise ValueError("unapproved source archive")
@@ -243,6 +246,21 @@ def run(archive: Path, reports: Path) -> dict:
             scores = -anomaly.score_samples(values["X"])
             anomaly_predicted = ["intervention" if score > threshold else "background" for score in scores]
             rf_predicted = best_model.predict(values["X"]).tolist()
+            if prediction_rows is not None:
+                probabilities = best_model.predict_proba(values["X"])
+                class_index = {label: index for index, label in enumerate(best_model.classes_)}
+                for metadata, label, predicted, probability in zip(
+                        values["metadata"], true, rf_predicted, probabilities, strict=True):
+                    prediction_rows.append({
+                        "condition": condition, "split": split,
+                        "episode_id": metadata["episode_id"], "batch": metadata["batch"],
+                        "gas_code": metadata["gas_code"],
+                        "concentration": metadata["concentration"],
+                        "family": metadata["family"], "true_label": label,
+                        "rf_predicted": predicted,
+                        **{f"rf_prob_{name}": float(probability[class_index[name]])
+                           for name in LABELS},
+                    })
             anomaly_metrics = _binary_metrics(binary_true, anomaly_predicted, true)
             anomaly_metrics.update(_breakdowns(true, anomaly_predicted, values["metadata"],
                                                binary=True, condition=condition))
@@ -252,8 +270,8 @@ def run(archive: Path, reports: Path) -> dict:
             condition_results[split] = {"anomaly_only": anomaly_metrics, "random_forest": rf_metrics}
         result["conditions"][condition] = condition_results
     reports.mkdir(parents=True, exist_ok=True)
-    (reports / "ml_baselines.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
-    (reports / "ml_baselines.md").write_text(_markdown(result))
+    (reports / "ml_baselines.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (reports / "ml_baselines.md").write_text(_markdown(result), encoding="utf-8")
     return result
 
 

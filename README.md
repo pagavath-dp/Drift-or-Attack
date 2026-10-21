@@ -2,7 +2,7 @@
 
 This repository contains a saved audit and model comparison using the UCI Gas Sensor Array Drift at Different Concentrations dataset. It classifies **assigned feature-space simulations**, not verified natural sensor aging or real cyberattacks. Batches 7–10 are exploratory because their audit distributions were inspected before the protocol was frozen. The protocol and saved results are in `docs/experimental_protocol.md` and `reports/`.
 
-The checkout does **not** contain the raw UCI archive, the three root-level PDFs recorded in `reports/source_manifest.json`, or a `.venv`. They must be supplied separately for end-to-end reproduction. Do not replace the recorded hashes to accommodate a different download or document.
+The checkout does **not** contain the raw UCI archive, the three root-level PDFs recorded in `reports/source_manifest.json`, or a `.venv`. The PDFs are required for strict historical provenance verification; they are not model inputs for a new isolated scientific run. That run requires the pinned archive and locked Python environment. Do not replace a recorded hash to accommodate a different download or document.
 
 ## Safe Windows verification
 
@@ -40,7 +40,18 @@ The tests that generate final figures and tables write only to a temporary direc
 
 ## Reproduction and write paths
 
-The audit, episode audit, preflight, baseline, AE, and final-results builder are **generation commands**. Their `--output` or `--reports` arguments write files. Do not point them at checked-in `reports/`. The final-results builder rejects any output path inside the supplied reports directory and requires an empty output directory. Use a separate work directory after the original external inputs and environment pass verification. The saved reports remain authoritative; a new run must compare its confusion matrices with them before any per-episode export is treated as reproduced evidence.
+The audit, episode audit, preflight, baseline, AE, and final-results builder are **generation commands**. Their `--output` or `--reports` arguments write files. They reject targets inside this checkout's frozen `reports/` tree. The final-results builder also rejects an output path inside its supplied reports directory and requires an empty output directory. Historical verification with `scripts.verify_frozen` remains strict about all recorded PDFs.
+
+For a **new isolated model reproduction**, `scripts.reproduce_models` checks the pinned archive, Python 3.13, every version in `requirements-ae.lock`, and all frozen report hashes before generating anything. It copies only the frozen calibration/preflight input evidence to a new output directory; the old PDFs are not read. It fits the existing baseline and AE runners unchanged in their choices, compares generated validation and exploratory matrices and selected thresholds with the frozen JSON, then reconstructs those matrices from per-episode rows. It writes `episode_predictions.csv` and `matrix_comparison.json` only after every comparison passes. An incomplete or mismatched run leaves only isolated diagnostic outputs, never a validated prediction export. The CSV carries episode ID, split, condition, batch, gas/concentration as audit metadata, true label, RF prediction and probabilities, AE score, AE binary decision, and AE-gated prediction. Gas and concentration remain excluded from model inputs.
+
+```powershell
+py -3.13 -m venv .venv
+& .\.venv\Scripts\python.exe -m pip install -r requirements-ae.lock
+& .\.venv\Scripts\python.exe -B -m scripts.reproduce_models --check-only --archive data/raw/uci-270.zip
+& .\.venv\Scripts\python.exe -B -m scripts.reproduce_models --archive data/raw/uci-270.zip --output reproductions/run-2026-10-22
+```
+
+The output path must be new and outside frozen `reports/`; use a new name for another attempt. The archive must match SHA-256 `98fe3a30981a222dd4518fbcc3dddd45d5c0ce9b03ef6dc6fe5cf7a04cfbff5e`. The saved reports remain authoritative if a reproduction differs.
 
 The fixed split is Batch 1 reference, Batches 2–4 training, Batches 5–6 validation, and Batches 7–10 exploratory test. The synthetic families are bias, scaling, noise, freeze, and replay. Freeze and replay are exact-copy controls with deterministic signatures. Binary intervention detection and three-class background/drift/attack classification are separate tasks. The matched-primary exploratory three-class macro-F1 is 0.3873 for RF and 0.3694 for AE-gated RF; their background intervention flags are 724/909 and 752/909, respectively. These are frozen results, not deployment performance.
 
