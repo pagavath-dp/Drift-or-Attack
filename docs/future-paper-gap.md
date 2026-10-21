@@ -1,0 +1,11 @@
+# Active research-validation workstream
+
+The current contribution is a controlled, source-paired synthetic intervention experiment with a carefully reported negative three-class AE-gate comparison. The following work is active now. Some steps depend on inputs or independent data that are not yet available, and completion may continue after the fixed 24 October course submission. A publication claim requires evidence beyond the current package:
+
+1. **Verified literature gap.** Read and critically compare the relevant primary papers, confirm novelty against prior drift/attack attribution and AIoT evaluation, and narrow the research question. A bibliography or model combination alone is insufficient.
+2. **External, timed, labelled evidence.** Obtain actual acquisition order/timestamps, independently documented aging or calibration states, realistic attacks at a specified interface, environmental/fault controls, and preferably independent devices or sites. Test unknown onset instead of supplying the simulated intervention alignment.
+3. **Independent reproduction and prediction audit.** Recover the pinned raw archive and provenance documents, recreate the recorded environment, export per-episode IDs, labels, predictions, RF probabilities, and AE scores in isolated outputs, then reconstruct each frozen confusion matrix before analysing new gas or attack-family errors. Preserve the course reports unchanged.
+4. **Robustness and uncertainty.** Evaluate operating-condition and unseen-gas effects, exact-copy versus non-copy families, magnitude-pool signatures, threshold and feature sensitivity, paired source-cluster intervals, and predeclared external holdouts. Address high background false alarms before any usefulness claim.
+5. **Systems evidence if proposing deployment.** Implement and measure an actual sensor/gateway/edge/cloud path, including latency, memory, energy, communications, failure handling, and a defensible operator decision policy. Compensation and quarantine require implemented semantics and separate evaluation.
+
+These are current research tasks, with evidence and blockers tracked separately from the course submission requirements. The 24 October submission must accurately state which parts were completed by then. No missing experiment or real-world result may be presented as completed evidence.

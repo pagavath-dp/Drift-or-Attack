@@ -27,6 +27,8 @@ INPUTS = (
     "batch_summary.csv", "batch_gas_summary.csv", "source_manifest.json", "ml_baselines.json",
     "ml_autoencoder.json", "ml_preflight.json", "data_audit.md",
 )
+EXTERNAL_INPUTS = ("data/raw/uci-270.zip", "Drift or Attack AIot.pdf",
+                   "drift_or_attack_IEEE_report.pdf", "drift_or_attack_IEEE_turnitin.pdf")
 BLUE = "#0072B2"
 ORANGE = "#D55E00"
 GREEN = "#009E73"
@@ -44,6 +46,31 @@ def digest(path: Path) -> str:
     return h.hexdigest()
 
 
+def input_hash_status(path: Path, expected: str) -> str:
+    """Check the historical byte hash, accepting only CRLF-to-LF checkout conversion for text."""
+    if not path.is_file():
+        return "missing"
+    if digest(path) == expected:
+        return "exact"
+    if path.suffix.lower() in {".csv", ".json", ".md", ".svg"}:
+        raw = path.read_bytes()
+        normalized = raw.replace(b"\r\n", b"\n")
+        if normalized != raw and b"\r" not in normalized and sha256(normalized).hexdigest() == expected:
+            return "crlf_checkout"
+    return "mismatch"
+
+
+def inspect_source_hashes(reports: Path) -> dict[str, str]:
+    """Return a status for every recorded input without opening output files for writing."""
+    root = reports.parent
+    saved = json.loads((reports / "final_results/source_hashes.json").read_text(encoding="utf-8"))
+    paths = {name: reports / name for name in INPUTS}
+    paths["experimental_protocol.md"] = root / "docs/experimental_protocol.md"
+    paths.update({name: root / name for name in EXTERNAL_INPUTS})
+    return {name: input_hash_status(path, saved["source_sha256"][name])
+            for name, path in paths.items()}
+
+
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ValueError(message)
@@ -53,19 +80,27 @@ def close(actual: float, expected: float, message: str) -> None:
     require(abs(float(actual) - expected) <= 1e-9, message)
 
 
-def load_and_validate(reports: Path) -> tuple[dict, list[dict], dict]:
+def load_and_validate(reports: Path, require_external_inputs: bool = True) -> tuple[dict, list[dict], dict]:
     """Read frozen reports and reject inconsistent provenance or saved metrics."""
     root = reports.parent
     paths = {name: reports / name for name in INPUTS}
     paths["experimental_protocol.md"] = root / "docs/experimental_protocol.md"
     for name, path in paths.items():
         require(path.is_file(), f"missing frozen input: {name}")
-    source_hashes = {name: digest(path) for name, path in paths.items()}
-    with (reports / "batch_summary.csv").open(newline="") as stream:
+    saved_provenance = json.loads((reports / "final_results/source_hashes.json").read_text(encoding="utf-8"))
+    statuses = inspect_source_hashes(reports)
+    for name in paths:
+        require(statuses[name] in ("exact", "crlf_checkout"),
+                f"frozen input {name}: {statuses[name]}")
+    for name in EXTERNAL_INPUTS:
+        if require_external_inputs or statuses[name] != "missing":
+            require(statuses[name] == "exact", f"external input {name}: {statuses[name]}")
+    source_hashes = saved_provenance["source_sha256"]
+    with (reports / "batch_summary.csv").open(newline="", encoding="utf-8") as stream:
         batches = list(csv.DictReader(stream))
-    with (reports / "batch_gas_summary.csv").open(newline="") as stream:
+    with (reports / "batch_gas_summary.csv").open(newline="", encoding="utf-8") as stream:
         gas_rows = list(csv.DictReader(stream))
-    data = {name: json.loads((reports / f"{name}.json").read_text())
+    data = {name: json.loads((reports / f"{name}.json").read_text(encoding="utf-8"))
             for name in ("source_manifest", "ml_baselines", "ml_autoencoder", "ml_preflight")}
     manifest, baseline, autoencoder, preflight = (data[name] for name in
         ("source_manifest", "ml_baselines", "ml_autoencoder", "ml_preflight"))
@@ -74,14 +109,11 @@ def load_and_validate(reports: Path) -> tuple[dict, list[dict], dict]:
     for name, item in (("baseline", baseline), ("autoencoder", autoencoder), ("preflight", preflight)):
         require(item["archive_sha256"] == archive_hash, f"{name} archive provenance mismatch")
         require(item["calibration_digest"] == calibration_hash, f"{name} calibration provenance mismatch")
-    raw_archive = root / "data/raw/uci-270.zip"
-    require(raw_archive.is_file() and digest(raw_archive) == archive_hash,
-            "raw archive no longer matches frozen source manifest")
-    source_hashes["data/raw/uci-270.zip"] = archive_hash
+    require(source_hashes["data/raw/uci-270.zip"] == archive_hash,
+            "recorded archive hash differs from frozen source manifest")
     for filename, expected in manifest["pdf_sha256"].items():
-        pdf = root / filename
-        require(pdf.is_file() and digest(pdf) == expected, f"submitted PDF hash changed: {filename}")
-        source_hashes[filename] = expected
+        require(source_hashes[filename] == expected,
+                f"recorded PDF hash differs from frozen source manifest: {filename}")
     require(len(batches) == 10 and [int(row["batch"]) for row in batches] == list(range(1, 11)),
             "batch summary must contain B1–B10 exactly once in order")
     require(len(gas_rows) == 60 and
@@ -325,7 +357,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
     require(bool(rows), f"empty derived table: {path.name}")
     columns = list(rows[0])
     require(all(set(row) == set(columns) for row in rows), f"inconsistent table columns: {path.name}")
-    with path.open("w", newline="") as stream:
+    with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=columns)
         writer.writeheader()
         writer.writerows(rows)
@@ -359,7 +391,7 @@ class Svg:
         self.parts.append(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="{radius}" fill="{fill}"/>')
 
     def save(self, path: Path) -> None:
-        path.write_text("\n".join(self.parts + ["</svg>", ""]))
+        path.write_text("\n".join(self.parts + ["</svg>", ""]), encoding="utf-8")
 
 
 def draw_track_a(rows: list[dict], manifest: dict, path: Path) -> None:
@@ -603,11 +635,12 @@ def build_report(data: dict, batches: list[dict], tables: dict[str, list[dict]],
     return "\n".join(lines)
 
 
-def build(reports: Path, output: Path) -> list[Path]:
-    data, batches, provenance = load_and_validate(reports)
+def build(reports: Path, output: Path, require_external_inputs: bool = True) -> list[Path]:
+    data, batches, provenance = load_and_validate(reports, require_external_inputs)
     require(not output.exists() or output.is_dir(), "output path exists but is not a directory")
-    require(output.resolve() == (reports / "final_results").resolve(),
-            "generated output must be reports/final_results/")
+    require(not output.resolve().is_relative_to(reports.resolve()),
+            "generated output must be outside frozen reports/")
+    require(not output.exists() or not any(output.iterdir()), "generated output directory must be empty")
     tables = derive_tables(data, batches)
     figures = output / "figures"
     table_dir = output / "tables"
@@ -634,10 +667,10 @@ def build(reports: Path, output: Path) -> list[Path]:
     draw_family(data, family_path)
     produced.append(family_path)
     report_path = output / "final_results.md"
-    report_path.write_text(build_report(data, batches, tables, provenance))
+    report_path.write_text(build_report(data, batches, tables, provenance), encoding="utf-8")
     produced.append(report_path)
     provenance_path = output / "source_hashes.json"
-    provenance_path.write_text(json.dumps(provenance, indent=2, sort_keys=True) + "\n")
+    provenance_path.write_text(json.dumps(provenance, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     produced.append(provenance_path)
     return produced
 

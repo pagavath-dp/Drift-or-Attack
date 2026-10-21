@@ -1,68 +1,47 @@
-# Drift-or-Attack data audit
+# Drift-or-Attack: controlled synthetic intervention study
 
-This repository preserves the submitted project PDFs and audits the UCI **Gas Sensor Array Drift at Different Concentrations** dataset (dataset 270, DOI `10.24432/C5MK6M`). The audit does not train a model or assert that UCI supplies drift or cyberattack labels.
+This repository contains a saved audit and model comparison using the UCI Gas Sensor Array Drift at Different Concentrations dataset. It classifies **assigned feature-space simulations**, not verified natural sensor aging or real cyberattacks. Batches 7–10 are exploratory because their audit distributions were inspected before the protocol was frozen. The protocol and saved results are in `docs/experimental_protocol.md` and `reports/`.
 
-Source: https://archive.ics.uci.edu/dataset/270/gas+sensor+array+drift+dataset+at+different+concentrations
+The checkout does **not** contain the raw UCI archive, the three root-level PDFs recorded in `reports/source_manifest.json`, or a `.venv`. They must be supplied separately for end-to-end reproduction. Do not replace the recorded hashes to accommodate a different download or document.
 
-Use a project-local Python 3.13 environment. No third-party Python package is needed for this milestone. The raw archive remains in ignored `data/raw/`.
+## Safe Windows verification
 
-```sh
-/Library/Frameworks/Python.framework/Versions/3.13/bin/python3 -m venv .venv
-mkdir -p data/raw
-curl --fail --location --output data/raw/uci-270.zip 'https://archive.ics.uci.edu/static/public/270/gas%2Bsensor%2Barray%2Bdrift%2Bdataset%2Bat%2Bdifferent%2Bconcentrations.zip'
-shasum -a 256 data/raw/uci-270.zip
-unzip -l data/raw/uci-270.zip
-PYTHONPATH=src .venv/bin/python -m drift_attack.audit --archive data/raw/uci-270.zip --output reports
-PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
+From PowerShell in the repository root, use Python 3.13 or another Python 3.10+ interpreter for the standard-library-only verifier:
+
+```powershell
+py -3.13 -B -m scripts.verify_frozen --reports reports
 ```
 
-The audit pins the SHA-256 of the archive inspected for this milestone and checks it before parsing. The parser reads ZIP members directly and rejects unexpected names, unsafe paths, malformed rows, missing features, and non-finite values. It does not extract archive paths. UCI does not publish an independent archive digest on its dataset page; a changed official download must be reviewed before changing the pin.
+The command only reads files; `-B` also prevents Python bytecode cache writes. It checks recorded input hashes, all 34 checked-in report files against `docs/frozen_report_hashes.json` (digests of the original Git commit), saved report arithmetic and provenance, derived CSV tables, and the seven SVG files. Exit code `0` means all recorded inputs and saved artifacts passed; `2` means the saved artifacts passed but one or more external inputs are missing; `1` means an available input or saved artifact failed verification. Its output names each missing file or mismatch separately.
 
-The fixed split follows the submitted proposal: Batch 1 reference, Batches 2-4 training, Batches 5-6 validation, and Batches 7-10 held-out test. The audit only assesses whether a strict reference-envelope proxy might be feasible. It never treats later batches as verified drift. See `reports/data_audit.md` for the precise rule, coverage, counts, and limitations.
+The historical hashes are SHA-256 hashes of the original committed bytes; line endings vary by file. Six recorded text inputs have LF in Git and CRLF in this Windows checkout. Verification first checks the exact byte hash. For text artifacts (`.csv`, `.json`, `.md`, and `.svg`) only, it then accepts CRLF-to-LF conversion **when that conversion reproduces the recorded hash** and prints `crlf_checkout` for affected source inputs. CSV files whose original committed bytes already use CRLF pass the exact-byte check. Archive and PDF hashes must match byte for byte. Verification never changes a historical hash or rewrites a file; changed text content still fails.
 
-## Stage 1 synthetic episode checks
+The external inputs expected at the recorded paths are:
 
-The approved Design C protocol is in `docs/experimental_protocol.md`. Its episodes are artificial orderings, and its intervention labels describe assigned simulations only. The original Stage 1 generator diagnostics and manifest remain under `reports/`; run the named conditions below for current diagnostics.
+| Path | Required provenance |
+| --- | --- |
+| `data/raw/uci-270.zip` | UCI 270 archive; SHA-256 `98fe3a30981a222dd4518fbcc3dddd45d5c0ce9b03ef6dc6fe5cf7a04cfbff5e` |
+| `Drift or Attack AIot.pdf` | Proposal PDF; SHA-256 recorded in `reports/source_manifest.json` |
+| `drift_or_attack_IEEE_report.pdf` | Earlier report PDF; SHA-256 recorded in the manifest |
+| `drift_or_attack_IEEE_turnitin.pdf` | Earlier similarity PDF; SHA-256 recorded in the manifest |
 
-```sh
-PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
+The UCI dataset page is <https://archive.ics.uci.edu/dataset/270/gas+sensor+array+drift+dataset+at+different+concentrations>. The archive digest pins the version used by this study; a later official download may differ and requires investigation rather than a silent pin change.
+
+For the full test suite, create a local environment after Python 3.13 is installed:
+
+```powershell
+py -3.13 -m venv .venv
+& .\.venv\Scripts\python.exe -m pip install -r requirements-ml.txt
+$env:PYTHONPATH = 'src'
+& .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-The diagnostics and source-episode manifest are written under `reports/`. The manifest's gas, concentration, batch, source IDs, family, and sensor fields are audit metadata and must not become model inputs. The generator stops on duplicate source vectors, source-row reuse, cross-episode generated-vector duplicates, partition mismatches, unexpected intervention positions, or non-finite values.
+The tests that generate final figures and tables write only to a temporary directory; the integration preflight test skips when the raw archive is absent. The AE training runner additionally requires the packages pinned in `requirements-ae.lock`. Package installation and an equivalent training environment have not been verified in this checkout.
 
-## Training-only magnitude calibration
+## Reproduction and write paths
 
-The original Stage 1 bias grid `0.5, 1, 2` and its `reports/episode_diagnostics.*` and `reports/episode_manifest.csv` are preserved. Run the two explicitly named conditions to create separate outputs without replacing those files:
+The audit, episode audit, preflight, baseline, AE, and final-results builder are **generation commands**. Their `--output` or `--reports` arguments write files. Do not point them at checked-in `reports/`. The final-results builder rejects any output path inside the supplied reports directory and requires an empty output directory. Use a separate work directory after the original external inputs and environment pass verification. The saved reports remain authoritative; a new run must compare its confusion matrices with them before any per-episode export is treated as reproduced evidence.
 
-```sh
-PYTHONPATH=src .venv/bin/python -m drift_attack.episode_audit --archive data/raw/uci-270.zip --output reports --condition original_stress
-PYTHONPATH=src .venv/bin/python -m drift_attack.episode_audit --archive data/raw/uci-270.zip --output reports --condition matched_primary
-PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
-```
+The fixed split is Batch 1 reference, Batches 2–4 training, Batches 5–6 validation, and Batches 7–10 exploratory test. The synthetic families are bias, scaling, noise, freeze, and replay. Freeze and replay are exact-copy controls with deterministic signatures. Binary intervention detection and three-class background/drift/attack classification are separate tasks. The matched-primary exploratory three-class macro-F1 is 0.3873 for RF and 0.3694 for AE-gated RF; their background intervention flags are 724/909 and 752/909, respectively. These are frozen results, not deployment performance.
 
-`reports/magnitude_calibration.json` records the Batches 1–4 scale provenance, all Batch 2–4 source-episode IDs and training drift magnitudes, the frozen pools, and their digest. The `matched_primary` bias draws only from these frozen pools. Each condition has its own diagnostics and manifest filename. Magnitude matching is distributional over the training episodes; the reports show residual paired gaps and per-split changes. Validation and test do not recalibrate the generator. No model is trained by these commands.
-
-## Anomaly-only and Random Forest stage
-
-The approved baseline environment is the existing project-local Python 3.13 `.venv`, with exact installed versions in `requirements-ml.txt`. TensorFlow and XGBoost are not installed for this stage. Run the pretraining gates before fitting; the model runner repeats them automatically:
-
-```sh
-PYTHONPATH=src .venv/bin/python -m drift_attack.model_preflight --archive data/raw/uci-270.zip --reports reports
-PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
-PYTHONPATH=src .venv/bin/python -m drift_attack.ml_baselines --archive data/raw/uci-270.zip --reports reports
-```
-
-The exact 768 numeric inputs, training/validation split, threshold and model-selection rules, and metric denominators are in `docs/experimental_protocol.md`. `reports/ml_preflight.json` records finite-pool reuse and paired magnitude mismatch by split, family, and severity. `reports/ml_baselines.md` summarizes results; the JSON contains confusion matrices, per-class metrics, batch breakdowns, and denominators. The original-stress condition is evaluated separately with the primary-trained models. Batches 7–10 are exploratory; artificial episode results do not demonstrate real sensor aging or cyberattack detection.
-
-## Exact-copy diagnostic and autoencoder comparison
-
-The original preflight is retained as `reports/ml_preflight_before_exact_copy.json`. The current preflight additionally counts exact-zero freeze and exact-repeat replay sensor-block signatures by split and family. Freeze/replay are exact-copy controls; their results do not establish general attack detection. The primary 768-feature representation and baseline result files are unchanged.
-
-TensorFlow 2.21.0 was installed only in the project-local Python 3.13 `.venv`; `requirements-ae.lock` records the complete installed package versions. XGBoost was not installed. Reproduce the approved autoencoder comparison with:
-
-```sh
-PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
-PYTHONPATH=src .venv/bin/python -m drift_attack.autoencoder_stage --archive data/raw/uci-270.zip --reports reports
-```
-
-`reports/ml_autoencoder.md` summarizes the comparison and `reports/ml_autoencoder.json` contains full binary and three-class metrics, per-batch and family/severity results, denominators, provenance, and limitations. The runner repeats preflight gates, confirms the saved forest validation confusion, and uses Batches 5–6 only for autoencoder threshold selection. Batches 7–10 remain exploratory.
+For the 24 October course submission, use `docs/submission_note.md` for methodology, the implemented/proposed architecture boundary, and results wording; `docs/course_submission_checklist.md` for required sections and team-supplied files; and `docs/future-paper-gap.md` only as an after-submission research handoff. The opening status line in the frozen experimental protocol describes an earlier packaging state; this README states what is present in the current checkout.

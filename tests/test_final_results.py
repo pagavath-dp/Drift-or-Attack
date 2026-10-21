@@ -2,11 +2,13 @@ import copy
 import csv
 import json
 from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 import xml.etree.ElementTree as ET
 
-from scripts.build_final_results import (INPUTS, build, derive_tables, digest,
-                                         load_and_validate, validate_model_result)
+from scripts.build_final_results import (INPUTS, build, derive_tables, input_hash_status,
+                                         inspect_source_hashes, load_and_validate,
+                                         validate_model_result)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +19,7 @@ OUTPUT = REPORTS / "final_results"
 class FinalResultsTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.data, cls.batches, cls.provenance = load_and_validate(REPORTS)
+        cls.data, cls.batches, cls.provenance = load_and_validate(REPORTS, require_external_inputs=False)
         cls.tables = derive_tables(cls.data, cls.batches)
 
     def test_track_a_exclusions_and_cutoff_denominators(self):
@@ -70,25 +72,48 @@ class FinalResultsTests(unittest.TestCase):
             root = ET.parse(path).getroot()
             self.assertEqual(root.tag, "{http://www.w3.org/2000/svg}svg")
             self.assertGreater(path.stat().st_size, 3000)
-        saved = json.loads((OUTPUT / "source_hashes.json").read_text())
+        saved = json.loads((OUTPUT / "source_hashes.json").read_text(encoding="utf-8"))
         self.assertEqual(saved, self.provenance)
+        statuses = inspect_source_hashes(REPORTS)
         for name in INPUTS:
-            self.assertEqual(saved["source_sha256"][name], digest(REPORTS / name))
-        self.assertIn("exploratory", (OUTPUT / "final_results.md").read_text().lower())
-        self.assertIn("exact-copy controls", (OUTPUT / "final_results.md").read_text())
+            self.assertIn(statuses[name], ("exact", "crlf_checkout"))
+        self.assertIn("exploratory", (OUTPUT / "final_results.md").read_text(encoding="utf-8").lower())
+        self.assertIn("exact-copy controls", (OUTPUT / "final_results.md").read_text(encoding="utf-8"))
 
     def test_derived_csv_schema_and_repeatability(self):
         for name, rows in self.tables.items():
-            with (OUTPUT / "tables" / f"{name}.csv").open(newline="") as stream:
+            with (OUTPUT / "tables" / f"{name}.csv").open(newline="", encoding="utf-8") as stream:
                 parsed = list(csv.DictReader(stream))
             self.assertEqual(parsed, [{key: str(value) for key, value in row.items()}
                                       for row in rows], name)
-        before = {str(path.relative_to(OUTPUT)): digest(path)
-                  for path in OUTPUT.rglob("*") if path.is_file()}
-        build(REPORTS, OUTPUT)
-        after = {str(path.relative_to(OUTPUT)): digest(path)
-                 for path in OUTPUT.rglob("*") if path.is_file()}
-        self.assertEqual(before, after)
+        with TemporaryDirectory() as temporary:
+            generated = Path(temporary) / "final_results"
+            produced = build(REPORTS, generated, require_external_inputs=False)
+            self.assertEqual({path.relative_to(generated) for path in produced},
+                             {path.relative_to(OUTPUT) for path in OUTPUT.rglob("*") if path.is_file()})
+            for path in produced:
+                original = OUTPUT / path.relative_to(generated)
+                self.assertEqual(path.read_text(encoding="utf-8"),
+                                 original.read_text(encoding="utf-8"), str(original))
+
+    def test_hash_diagnostics_distinguish_missing_mismatch_and_crlf(self):
+        with TemporaryDirectory() as temporary:
+            path = Path(temporary) / "sample.md"
+            self.assertEqual(input_hash_status(path, "0" * 64), "missing")
+            path.write_bytes(b"one\r\ntwo\r\n")
+            from hashlib import sha256
+            expected = sha256(b"one\ntwo\n").hexdigest()
+            self.assertEqual(input_hash_status(path, expected), "crlf_checkout")
+            path.write_bytes(b"changed\r\ntwo\r\n")
+            self.assertEqual(input_hash_status(path, expected), "mismatch")
+            binary = Path(temporary) / "sample.pdf"
+            self.assertEqual(input_hash_status(binary, expected), "missing")
+            binary.write_bytes(b"one\r\ntwo\r\n")
+            self.assertEqual(input_hash_status(binary, expected), "mismatch")
+
+    def test_builder_rejects_frozen_output(self):
+        with self.assertRaisesRegex(ValueError, "outside frozen reports"):
+            build(REPORTS, OUTPUT, require_external_inputs=False)
 
 
 if __name__ == "__main__":
