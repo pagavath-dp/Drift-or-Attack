@@ -14,6 +14,11 @@ from scripts.build_final_results import (EXTERNAL_INPUTS, INPUTS, derive_tables,
                                          load_and_validate)
 
 
+def separately_managed_or_incidental(path: Path) -> bool:
+    """Only these additions are outside the historical reports inventory."""
+    return path.name == ".DS_Store" or (len(path.parts) > 1 and path.parts[0] == "evaluation2")
+
+
 def verify(reports: Path) -> int:
     try:
         statuses = inspect_source_hashes(reports)
@@ -37,8 +42,13 @@ def verify(reports: Path) -> int:
             status = input_hash_status(path, expected)
             if status not in ("exact", "crlf_checkout"):
                 raise ValueError(f"frozen artifact {relative}: {status}")
-        actual_files = {"reports/" + path.relative_to(reports).as_posix()
-                        for path in reports.rglob("*") if path.is_file()}
+        actual_files = set()
+        for path in reports.rglob("*"):
+            if not (path.is_file() or path.is_symlink()):
+                continue
+            relative = path.relative_to(reports)
+            if not separately_managed_or_incidental(relative):
+                actual_files.add("reports/" + relative.as_posix())
         if actual_files != set(frozen):
             raise ValueError("frozen artifact inventory differs: " +
                              ", ".join(sorted(actual_files ^ set(frozen))))

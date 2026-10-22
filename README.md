@@ -2,7 +2,7 @@
 
 This repository contains a saved audit and model comparison using the UCI Gas Sensor Array Drift at Different Concentrations dataset. It classifies **assigned feature-space simulations**, not verified natural sensor aging or real cyberattacks. Batches 7–10 are exploratory because their audit distributions were inspected before the protocol was frozen. The protocol and saved results are in `docs/experimental_protocol.md` and `reports/`.
 
-This local checkout contains the pinned UCI archive and all three root-level PDFs recorded in `reports/source_manifest.json`; `scripts.verify_frozen` verifies their exact hashes and all 34 frozen reports. They are external inputs and are not part of the intended code commit. The PDFs are required for strict historical provenance verification, but are not model inputs for a new isolated scientific run. A repository-root `.venv` is absent. Do not replace a recorded hash to accommodate a different download or document.
+This local checkout contains the pinned UCI archive and all three root-level PDFs recorded in `reports/source_manifest.json`; `scripts.verify_frozen` verifies their exact hashes and all 34 frozen reports. They are external inputs and are not part of the intended code commit. The PDFs are required for strict historical provenance verification, but are not model inputs for a new isolated scientific run. A repository-root `.venv` exists on the current macOS machine; it is ignored by Git and is not distributed with the repository. Do not replace a recorded hash to accommodate a different download or document.
 
 ## Safe Windows verification
 
@@ -12,7 +12,7 @@ From PowerShell in this checkout, use the locally established Python 3.13 enviro
 & .\reproductions\toolchain\python-embed-3.13.16\python.exe -B -m scripts.verify_frozen --reports reports
 ```
 
-The command only reads files; `-B` also prevents Python bytecode cache writes. It checks recorded input hashes, all 34 checked-in report files against `docs/frozen_report_hashes.json` (digests of the original Git commit), saved report arithmetic and provenance, derived CSV tables, and the seven SVG files. Exit code `0` means all recorded inputs and saved artifacts passed; `2` means the saved artifacts passed but one or more external inputs are missing; `1` means an available input or saved artifact failed verification. Its output names each missing file or mismatch separately.
+The command only reads files; `-B` also prevents Python bytecode cache writes. It checks recorded input hashes, all 34 checked-in report files against `docs/frozen_report_hashes.json` (digests of the original Git commit), saved report arithmetic and provenance, derived CSV tables, and the seven SVG files. Inventory checks remain strict outside the separately managed `reports/evaluation2/` tree and incidental files named `.DS_Store`; an unexpected file elsewhere under `reports/` fails verification. The Evaluation 2 paper is not a pinned historical artifact and is not content-verified by this command. Exit code `0` means all recorded inputs and saved artifacts passed; `2` means the saved artifacts passed but one or more external inputs are missing; `1` means an available input or saved artifact failed verification. Its output names each missing file or mismatch separately.
 
 The historical hashes are SHA-256 hashes of the original committed bytes; line endings vary by file. Six recorded text inputs have LF in Git and CRLF in this Windows checkout. Verification first checks the exact byte hash. For text artifacts (`.csv`, `.json`, `.md`, and `.svg`) only, it then accepts CRLF-to-LF conversion **when that conversion reproduces the recorded hash** and prints `crlf_checkout` for affected source inputs. CSV files whose original committed bytes already use CRLF pass the exact-byte check. Archive and PDF hashes must match byte for byte. Verification never changes a historical hash or rewrites a file; changed text content still fails.
 
@@ -37,6 +37,14 @@ $env:PYTHONPATH = 'src'
 ```
 
 The tests that generate final figures and tables write only to a temporary directory; the integration preflight test uses a temporary output directory when the raw archive is present. The AE training runner additionally requires the packages pinned in `requirements-ae.lock`. A local Windows Python 3.13.16 environment with those exact package versions was established under ignored `reproductions/toolchain/`; `scripts.reproduce_models --check-only` passed there. Equivalent generated model evidence has **not** been established.
+
+On this macOS checkout, the following safe checks were run on 22 October 2026 from the repository root. All exited `0`; the test suite ran 56 tests and used temporary outputs without changing frozen reports. The verifier and reproduction preflight only read project files. The reproduction command checks prerequisites; it does not fit models or validate new predictions.
+
+```sh
+PYTHONPATH=src .venv/bin/python -B -m unittest discover -s tests -q
+.venv/bin/python -B -m scripts.verify_frozen --reports reports
+PYTHONPATH=src .venv/bin/python -B -m scripts.reproduce_models --check-only --archive data/raw/uci-270.zip
+```
 
 ## Reproduction and write paths
 
